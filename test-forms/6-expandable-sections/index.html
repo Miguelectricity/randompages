@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply - SCADA Engineer</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: #f7f7f7;
+    }
+
+    form {
+      background: white;
+      padding: 40px;
+      max-width: 900px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 500;
+      color: #333;
+      margin: 30px 0 20px 0;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .section-title.required::after {
+      content: " *";
+      color: #dc3545;
+    }
+
+    .subsection-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      margin: 20px 0 15px 0;
+    }
+
+    .entry-container {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="url"],
+    .form-group input[type="number"],
+    .form-group select,
+    .form-group textarea {
+      width: 280px;
+      max-width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .form-group input[type="date"] {
+      width: 200px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .form-group input[type="file"] {
+      padding: 10px 0;
+    }
+
+    .form-group textarea {
+      width: 100%;
+      max-width: 600px;
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #86c68f;
+      box-shadow: 0 0 0 2px rgba(134, 198, 143, 0.2);
+    }
+
+    .salary-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .salary-group select {
+      width: 80px;
+    }
+
+    .salary-group input {
+      width: 200px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: auto;
+      margin-top: 4px;
+    }
+
+    .checkbox-group label {
+      font-weight: normal;
+      margin-bottom: 0;
+    }
+
+    .link-delete {
+      color: #e8a89d;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .link-delete:hover {
+      color: #d68679;
+      text-decoration: underline;
+    }
+
+    .link-add {
+      color: #86c68f;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-block;
+      margin: 15px 0;
+    }
+
+    .link-add:hover {
+      color: #6db377;
+      text-decoration: underline;
+    }
+
+    .error-message {
+      color: #e8a89d;
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .error-message.visible {
+      display: block;
+    }
+
+    .section-divider {
+      border-top: 1px solid #eee;
+      margin: 30px 0;
+    }
+
+    .oauth-buttons {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .oauth-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: white;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .oauth-btn:hover {
+      background: #f5f5f5;
+    }
+
+    .oauth-btn.indeed {
+      border-color: #2164f3;
+      color: #2164f3;
+    }
+
+    .oauth-btn.linkedin {
+      border-color: #0077b5;
+      color: #0077b5;
+    }
+
+    /* Submit button container - matches Breezy HR structure */
+    .apply-container {
+      margin-top: 20px;
+    }
+
+    .apply-container .navigation-buttons {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .apply-container .apply-button {
+      display: inline-block;
+    }
+
+    .apply-container .button.green.large.bzyButtonColor {
+      background: #86c68f;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .apply-container .button.green.large.bzyButtonColor:hover {
+      background: #6db377;
+    }
+
+    .apply-container .button.green.large.bzyButtonColor .fa-refresh.fa-spin {
+      display: none;
+    }
+
+    .apply-container .button.green.large.bzyButtonColor.submitting .fa-refresh.fa-spin {
+      display: inline-block;
+    }
+
+    .helper-text {
+      font-size: 13px;
+      color: #666;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>SCADA Engineer Application</h1>
+  <p>Vantage Point Solutions, Inc. - Apply for this position</p>
+
+  <form id="application-form" onsubmit="return handleSubmit(event)">
+    <!-- Personal Details Section -->
+    <div class="section-title">Personal Details</div>
+
+    <div class="form-group">
+      <label for="full_name">Full Name *</label>
+      <input type="text" id="full_name" name="full_name" required placeholder="Full Name">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" required placeholder="Email Address">
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" name="phone" required placeholder="Phone Number">
+    </div>
+
+    <div class="form-group checkbox-group">
+      <input type="checkbox" id="sms_consent" name="sms_consent">
+      <label for="sms_consent">I agree to receive SMS messages regarding my application</label>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address *</label>
+      <input type="text" id="address" name="address" required placeholder="Address">
+    </div>
+
+    <div class="form-group">
+      <label for="salary">Desired Salary *</label>
+      <div class="salary-group">
+        <select id="salary_currency" name="salary_currency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="CAD">CAD</option>
+        </select>
+        <input type="number" id="salary" name="salary" required placeholder="Amount">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="preferred_location">Preferred Location</label>
+      <select id="preferred_location" name="preferred_location">
+        <option value="">Select a location...</option>
+        <option value="remote">Remote</option>
+        <option value="mitchell_sd">Mitchell, SD</option>
+        <option value="sioux_falls_sd">Sioux Falls, SD</option>
+        <option value="fargo_nd">Fargo, ND</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Resume Section -->
+    <div class="section-title required">Resume</div>
+
+    <div class="form-group">
+      <label for="resume">Upload Resume *</label>
+      <input type="file" id="resume" name="resume" required accept=".pdf,.doc,.docx">
+      <div class="helper-text">Accepted formats: PDF, DOC, DOCX</div>
+    </div>
+
+    <div class="oauth-buttons">
+      <a class="oauth-btn indeed" href="#" onclick="return false;">
+        <span>Apply with Indeed</span>
+      </a>
+      <a class="oauth-btn linkedin" href="#" onclick="return false;">
+        <span>Apply with LinkedIn</span>
+      </a>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Experience Section -->
+    <div class="section-title">Experience</div>
+
+    <div class="subsection-title">Work History</div>
+
+    <div id="experience-entries">
+      <!-- Experience entries will be added here -->
+    </div>
+
+    <a class="link-add" onclick="addExperienceEntry()">+ Add Position</a>
+
+    <div class="section-divider"></div>
+
+    <!-- Education Section (Required) -->
+    <div class="section-title required">Education</div>
+
+    <div id="education-entries">
+      <!-- Education entries will be added here -->
+    </div>
+
+    <a class="link-add" onclick="addEducationEntry()">+ Add Education</a>
+    <div id="education-error" class="error-message">A response is required</div>
+
+    <div class="section-divider"></div>
+
+    <!-- Additional Information -->
+    <div class="section-title">Additional Information</div>
+
+    <div class="form-group">
+      <label for="cover_letter">Cover Letter</label>
+      <textarea id="cover_letter" name="cover_letter" placeholder="Cover Letter"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="experience_summary">Experience Summary</label>
+      <textarea id="experience_summary" name="experience_summary" placeholder="Summarize your relevant experience..."></textarea>
+    </div>
+
+    <div class="apply-container">
+      <ul class="navigation-buttons">
+        <li class="apply-button">
+          <button type="submit" class="button green large bzyButtonColor">
+            <i class="fa fa-refresh fa-spin"></i>
+            <span class="polygot">Submit Application</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </form>
+
+  <script>
+    let experienceCount = 0;
+    let educationCount = 0;
+
+    function addExperienceEntry() {
+      experienceCount++;
+      const container = document.getElementById('experience-entries');
+      const entryId = `experience_${experienceCount}`;
+
+      const entryHtml = `
+        <div class="entry-container" id="${entryId}_container">
+          <div class="form-group">
+            <input type="text" id="${entryId}_company" name="${entryId}_company" placeholder="Company">
+          </div>
+
+          <div class="form-group">
+            <input type="text" id="${entryId}_title" name="${entryId}_title" placeholder="Title">
+          </div>
+
+          <div class="form-group">
+            <textarea id="${entryId}_summary" name="${entryId}_summary" placeholder="Summary"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="${entryId}_start_date">Start date</label>
+            <input type="date" id="${entryId}_start_date" name="${entryId}_start_date">
+          </div>
+
+          <div class="form-group">
+            <label for="${entryId}_end_date">End date</label>
+            <input type="date" id="${entryId}_end_date" name="${entryId}_end_date">
+          </div>
+
+          <a class="link-delete" onclick="removeEntry('${entryId}_container')">Delete</a>
+        </div>
+      `;
+
+      container.insertAdjacentHTML('beforeend', entryHtml);
+    }
+
+    function addEducationEntry() {
+      educationCount++;
+      const container = document.getElementById('education-entries');
+      const entryId = `education_${educationCount}`;
+
+      // Hide error message when entry is added
+      document.getElementById('education-error').classList.remove('visible');
+
+      const entryHtml = `
+        <div class="entry-container" id="${entryId}_container">
+          <div class="form-group">
+            <input type="text" id="${entryId}_school" name="${entryId}_school" placeholder="School">
+          </div>
+
+          <div class="form-group">
+            <input type="text" id="${entryId}_degree" name="${entryId}_degree" placeholder="Degree">
+          </div>
+
+          <div class="form-group">
+            <input type="text" id="${entryId}_field" name="${entryId}_field" placeholder="Field of Study">
+          </div>
+
+          <div class="form-group">
+            <label for="${entryId}_start_date">Start date</label>
+            <input type="date" id="${entryId}_start_date" name="${entryId}_start_date">
+          </div>
+
+          <div class="form-group">
+            <label for="${entryId}_end_date">End date</label>
+            <input type="date" id="${entryId}_end_date" name="${entryId}_end_date">
+          </div>
+
+          <a class="link-delete" onclick="removeEntry('${entryId}_container', 'education')">Delete</a>
+        </div>
+      `;
+
+      container.insertAdjacentHTML('beforeend', entryHtml);
+    }
+
+    function removeEntry(containerId, type) {
+      const container = document.getElementById(containerId);
+      if (container) {
+        container.remove();
+
+        // Show error if education is now empty
+        if (type === 'education') {
+          const educationEntries = document.querySelectorAll('#education-entries .entry-container');
+          if (educationEntries.length === 0) {
+            document.getElementById('education-error').classList.add('visible');
+          }
+        }
+      }
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      // Validate at least one education entry (required)
+      const educationEntries = document.querySelectorAll('#education-entries .entry-container');
+      if (educationEntries.length === 0) {
+        document.getElementById('education-error').classList.add('visible');
+        return false;
+      }
+
+      window.location.href = 'confirmation.html';
+      return false;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply - Data Analyst</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <h1>Data Analyst Application</h1>
+  <p>Please fill out the form below to apply for this position.</p>
+
+  <form id="application-form" onsubmit="return handleSubmit(event)">
+    <div class="form-group">
+      <label for="first_name" class="required">First Name</label>
+      <input type="text" id="first_name" name="first_name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="last_name" class="required">Last Name</label>
+      <input type="text" id="last_name" name="last_name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="required">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone" class="required">Phone</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+
+    <div class="form-group">
+      <label for="location" class="required">Current Location</label>
+      <input type="text" id="location" name="location" required placeholder="City, State">
+    </div>
+
+    <div class="form-group">
+      <label for="resume" class="required">Resume</label>
+      <input type="file" id="resume" name="resume" required accept=".pdf,.doc,.docx">
+    </div>
+
+    <div class="form-group">
+      <label for="sql_experience" class="required">Years of SQL Experience</label>
+      <select id="sql_experience" name="sql_experience" required>
+        <option value="">Select...</option>
+        <option value="1-2">1-2 years</option>
+        <option value="3-5">3-5 years</option>
+        <option value="5-10">5-10 years</option>
+        <option value="10+">10+ years</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="python_experience" class="required">Years of Python Experience</label>
+      <select id="python_experience" name="python_experience" required>
+        <option value="">Select...</option>
+        <option value="0-1">Less than 1 year</option>
+        <option value="1-2">1-2 years</option>
+        <option value="3-5">3-5 years</option>
+        <option value="5+">5+ years</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="visualization_tools">Visualization Tools (select all that apply)</label>
+      <select id="visualization_tools" name="visualization_tools" multiple size="4">
+        <option value="tableau">Tableau</option>
+        <option value="looker">Looker</option>
+        <option value="powerbi">Power BI</option>
+        <option value="metabase">Metabase</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="why_interested">Why are you interested in this role?</label>
+      <textarea id="why_interested" name="why_interested" rows="4"></textarea>
+    </div>
+
+    <button type="submit">Submit Application</button>
+  </form>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      window.location.href = 'confirmation.html';
+      return false;
+    }
+  </script>
+</body>
+</html>

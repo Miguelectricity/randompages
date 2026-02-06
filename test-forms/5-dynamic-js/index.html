@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply - Full Stack Developer</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    #loading {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+    }
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #2557a7;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 10px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Full Stack Developer Application</h1>
+  <p>Please complete the application form below.</p>
+
+  <!-- Loading state shown initially -->
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>Loading application form...</p>
+  </div>
+
+  <!-- Form container - empty until JS populates it -->
+  <div id="form-container"></div>
+
+  <script>
+    // Form configuration - defines all fields
+    const formConfig = {
+      sections: [
+        {
+          title: 'Personal Information',
+          fields: [
+            { name: 'full_name', label: 'Full Name', type: 'text', required: true },
+            { name: 'email', label: 'Email Address', type: 'email', required: true },
+            { name: 'phone', label: 'Phone Number', type: 'tel', required: true },
+            { name: 'linkedin', label: 'LinkedIn Profile', type: 'url', required: false, placeholder: 'https://linkedin.com/in/username' },
+          ]
+        },
+        {
+          title: 'Technical Skills',
+          fields: [
+            {
+              name: 'primary_language',
+              label: 'Primary Programming Language',
+              type: 'select',
+              required: true,
+              options: ['', 'JavaScript/TypeScript', 'Python', 'Java', 'Go', 'Rust', 'C#', 'Ruby', 'Other']
+            },
+            {
+              name: 'frontend_frameworks',
+              label: 'Frontend Frameworks (select all)',
+              type: 'multiselect',
+              required: false,
+              options: ['React', 'Vue', 'Angular', 'Svelte', 'Next.js', 'None']
+            },
+            {
+              name: 'backend_frameworks',
+              label: 'Backend Frameworks (select all)',
+              type: 'multiselect',
+              required: false,
+              options: ['Node.js/Express', 'Django', 'Flask', 'Spring Boot', 'Rails', 'FastAPI', 'None']
+            },
+            {
+              name: 'databases',
+              label: 'Database Experience',
+              type: 'checkbox_group',
+              required: false,
+              options: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'DynamoDB', 'Elasticsearch']
+            },
+            {
+              name: 'years_experience',
+              label: 'Years of Professional Experience',
+              type: 'select',
+              required: true,
+              options: ['', '0-1', '1-3', '3-5', '5-8', '8+']
+            },
+          ]
+        },
+        {
+          title: 'Additional Information',
+          fields: [
+            { name: 'portfolio', label: 'Portfolio/GitHub URL', type: 'url', required: false },
+            { name: 'resume', label: 'Resume', type: 'file', required: true, accept: '.pdf,.doc,.docx' },
+            { name: 'cover_letter', label: 'Cover Letter', type: 'textarea', required: false, rows: 4, placeholder: 'Tell us about yourself and why you want to join...' },
+            {
+              name: 'start_availability',
+              label: 'When can you start?',
+              type: 'select',
+              required: true,
+              options: ['', 'Immediately', '2 weeks notice', '1 month', '2+ months']
+            },
+            {
+              name: 'work_preference',
+              label: 'Work Preference',
+              type: 'radio',
+              required: true,
+              options: ['Remote', 'Hybrid', 'On-site', 'No preference']
+            },
+          ]
+        }
+      ]
+    };
+
+    // Render form after delay (simulating API fetch)
+    function renderForm() {
+      const container = document.getElementById('form-container');
+      const loading = document.getElementById('loading');
+
+      // Hide loading spinner
+      loading.style.display = 'none';
+
+      // Create form element
+      const form = document.createElement('form');
+      form.id = 'application-form';
+      form.onsubmit = handleSubmit;
+
+      // Render each section
+      formConfig.sections.forEach(section => {
+        const sectionDiv = document.createElement('div');
+        sectionDiv.className = 'form-section';
+
+        const sectionTitle = document.createElement('h2');
+        sectionTitle.textContent = section.title;
+        sectionDiv.appendChild(sectionTitle);
+
+        // Render fields in section
+        section.fields.forEach(field => {
+          const formGroup = document.createElement('div');
+          formGroup.className = 'form-group';
+
+          const label = document.createElement('label');
+          label.setAttribute('for', field.name);
+          label.textContent = field.label;
+          if (field.required) label.className = 'required';
+          formGroup.appendChild(label);
+
+          let input;
+
+          switch (field.type) {
+            case 'select':
+              input = document.createElement('select');
+              input.id = field.name;
+              input.name = field.name;
+              if (field.required) input.required = true;
+              field.options.forEach(opt => {
+                const option = document.createElement('option');
+                option.value = opt;
+                option.textContent = opt || 'Select...';
+                input.appendChild(option);
+              });
+              break;
+
+            case 'multiselect':
+              input = document.createElement('select');
+              input.id = field.name;
+              input.name = field.name;
+              input.multiple = true;
+              input.size = Math.min(field.options.length, 4);
+              field.options.forEach(opt => {
+                const option = document.createElement('option');
+                option.value = opt;
+                option.textContent = opt;
+                input.appendChild(option);
+              });
+              break;
+
+            case 'checkbox_group':
+              input = document.createElement('div');
+              input.className = 'checkbox-group';
+              field.options.forEach(opt => {
+                const checkLabel = document.createElement('label');
+                checkLabel.style.display = 'block';
+                checkLabel.style.fontWeight = 'normal';
+                checkLabel.style.marginBottom = '8px';
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.name = field.name;
+                checkbox.value = opt;
+                checkbox.style.marginRight = '8px';
+                checkLabel.appendChild(checkbox);
+                checkLabel.appendChild(document.createTextNode(opt));
+                input.appendChild(checkLabel);
+              });
+              break;
+
+            case 'radio':
+              input = document.createElement('div');
+              input.className = 'radio-group';
+              field.options.forEach((opt, idx) => {
+                const radioLabel = document.createElement('label');
+                radioLabel.style.display = 'block';
+                radioLabel.style.fontWeight = 'normal';
+                radioLabel.style.marginBottom = '8px';
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = field.name;
+                radio.value = opt;
+                radio.id = `${field.name}_${idx}`;
+                if (field.required && idx === 0) radio.required = true;
+                radio.style.marginRight = '8px';
+                radioLabel.appendChild(radio);
+                radioLabel.appendChild(document.createTextNode(opt));
+                input.appendChild(radioLabel);
+              });
+              break;
+
+            case 'textarea':
+              input = document.createElement('textarea');
+              input.id = field.name;
+              input.name = field.name;
+              if (field.rows) input.rows = field.rows;
+              if (field.placeholder) input.placeholder = field.placeholder;
+              if (field.required) input.required = true;
+              break;
+
+            case 'file':
+              input = document.createElement('input');
+              input.type = 'file';
+              input.id = field.name;
+              input.name = field.name;
+              if (field.accept) input.accept = field.accept;
+              if (field.required) input.required = true;
+              break;
+
+            default: // text, email, tel, url, etc.
+              input = document.createElement('input');
+              input.type = field.type;
+              input.id = field.name;
+              input.name = field.name;
+              if (field.placeholder) input.placeholder = field.placeholder;
+              if (field.required) input.required = true;
+          }
+
+          formGroup.appendChild(input);
+          sectionDiv.appendChild(formGroup);
+        });
+
+        form.appendChild(sectionDiv);
+      });
+
+      // Add submit button
+      const submitBtn = document.createElement('button');
+      submitBtn.type = 'submit';
+      submitBtn.textContent = 'Submit Application';
+      form.appendChild(submitBtn);
+
+      container.appendChild(form);
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      window.location.href = 'confirmation.html';
+      return false;
+    }
+
+    // Simulate loading delay (500ms)
+    setTimeout(renderForm, 500);
+  </script>
+</body>
+</html>

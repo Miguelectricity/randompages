@@ -1,0 +1,198 @@
+/* Shared styles for test job application forms */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f5f5f5;
+}
+
+h1 {
+  color: #333;
+  border-bottom: 2px solid #2557a7;
+  padding-bottom: 10px;
+}
+
+h2 {
+  color: #444;
+}
+
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+input[type="number"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2557a7;
+  box-shadow: 0 0 0 2px rgba(37, 87, 167, 0.2);
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+button,
+.btn {
+  display: inline-block;
+  background: #2557a7;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+button:hover,
+.btn:hover {
+  background: #1a4a8a;
+}
+
+.btn-secondary {
+  background: #6c757d;
+}
+
+.btn-secondary:hover {
+  background: #5a6268;
+}
+
+.required::after {
+  content: " *";
+  color: #dc3545;
+}
+
+.hidden {
+  display: none;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 0;
+  list-style: none;
+}
+
+.step-indicator li {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  background: #e9ecef;
+  margin: 0 2px;
+  border-radius: 4px;
+}
+
+.step-indicator li.active {
+  background: #2557a7;
+  color: white;
+}
+
+.step-indicator li.completed {
+  background: #28a745;
+  color: white;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.confirmation {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.confirmation .checkmark {
+  font-size: 64px;
+  color: #28a745;
+}
+
+.job-listing {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.job-listing h2 {
+  margin-top: 0;
+}
+
+.job-listing ul {
+  margin: 20px 0;
+}
+
+/* Index page styles */
+.form-list {
+  list-style: none;
+  padding: 0;
+}
+
+.form-list li {
+  background: white;
+  margin-bottom: 15px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-list a {
+  color: #2557a7;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.form-list a:hover {
+  text-decoration: underline;
+}
+
+.form-list p {
+  margin: 10px 0 0 0;
+  color: #666;
+}

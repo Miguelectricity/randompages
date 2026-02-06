@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application - Step 5: Review & Submit</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <h1>Product Manager Application</h1>
+
+  <ul class="step-indicator">
+    <li class="completed">1. Personal</li>
+    <li class="completed">2. Experience</li>
+    <li class="completed">3. Education</li>
+    <li class="completed">4. References</li>
+    <li class="active">5. Review</li>
+  </ul>
+
+  <form id="step5-form" onsubmit="return handleSubmit(event)">
+    <h2>Review & Submit</h2>
+    <p>Please review your application before submitting. You can go back to any previous step to make changes.</p>
+
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <h3>Application Summary</h3>
+      <p><em>In a real application, this would display a summary of all entered information.</em></p>
+      <ul>
+        <li>Personal Information: Completed</li>
+        <li>Work Experience: Completed</li>
+        <li>Education: Completed</li>
+        <li>References: Completed</li>
+      </ul>
+    </div>
+
+    <div class="form-group">
+      <label for="how_heard" class="required">How did you hear about this position?</label>
+      <select id="how_heard" name="how_heard" required>
+        <option value="">Select...</option>
+        <option value="linkedin">LinkedIn</option>
+        <option value="indeed">Indeed</option>
+        <option value="company_website">Company Website</option>
+        <option value="referral">Employee Referral</option>
+        <option value="recruiter">Recruiter</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="additional_info">Additional Information (Optional)</label>
+      <textarea id="additional_info" name="additional_info" rows="4" placeholder="Is there anything else you'd like us to know?"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>
+        <input type="checkbox" id="terms" name="terms" required>
+        I certify that all information provided is accurate and complete. *
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>
+        <input type="checkbox" id="privacy" name="privacy" required>
+        I agree to the <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>. *
+      </label>
+    </div>
+
+    <div class="nav-buttons">
+      <a href="step4.html" class="btn btn-secondary">&larr; Back</a>
+      <button type="submit">Submit Application</button>
+    </div>
+  </form>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      window.location.href = 'confirmation.html';
+      return false;
+    }
+  </script>
+</body>
+</html>

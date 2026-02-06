@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application - Step 4: References</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <h1>Product Manager Application</h1>
+
+  <ul class="step-indicator">
+    <li class="completed">1. Personal</li>
+    <li class="completed">2. Experience</li>
+    <li class="completed">3. Education</li>
+    <li class="active">4. References</li>
+    <li>5. Review</li>
+  </ul>
+
+  <form id="step4-form" onsubmit="return handleNext(event)">
+    <h2>Professional References</h2>
+    <p>Please provide two professional references.</p>
+
+    <h3>Reference 1</h3>
+    <div class="form-group">
+      <label for="ref1_name" class="required">Full Name</label>
+      <input type="text" id="ref1_name" name="ref1_name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ref1_title" class="required">Job Title</label>
+      <input type="text" id="ref1_title" name="ref1_title" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ref1_company" class="required">Company</label>
+      <input type="text" id="ref1_company" name="ref1_company" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ref1_email" class="required">Email</label>
+      <input type="email" id="ref1_email" name="ref1_email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ref1_phone" class="required">Phone</label>
+      <input type="tel" id="ref1_phone" name="ref1_phone" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ref1_relationship" class="required">Relationship</label>
+      <select id="ref1_relationship" name="ref1_relationship" required>
+        <option value="">Select...</option>
+        <option value="manager">Direct Manager</option>
+        <option value="colleague">Colleague</option>
+        <option value="report">Direct Report</option>
+        <option value="client">Client/Stakeholder</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <hr style="margin: 30px 0;">
+
+    <h3>Reference 2</h3>
+    <div class="form-group">
+      <label for="ref2_name" class="required">Full Name</label>
+      <input type="text" id="ref2_name" name="ref2_name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ref2_title" class="required">Job Title</label>
+      <input type="text" id="ref2_title" name="ref2_title" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ref2_company" class="required">Company</label>
+      <input type="text" id="ref2_company" name="ref2_company" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ref2_email" class="required">Email</label>
+      <input type="email" id="ref2_email" name="ref2_email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ref2_phone" class="required">Phone</label>
+      <input type="tel" id="ref2_phone" name="ref2_phone" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ref2_relationship" class="required">Relationship</label>
+      <select id="ref2_relationship" name="ref2_relationship" required>
+        <option value="">Select...</option>
+        <option value="manager">Direct Manager</option>
+        <option value="colleague">Colleague</option>
+        <option value="report">Direct Report</option>
+        <option value="client">Client/Stakeholder</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="nav-buttons">
+      <a href="step3.html" class="btn btn-secondary">&larr; Back</a>
+      <button type="submit">Next &rarr;</button>
+    </div>
+  </form>
+
+  <script>
+    function handleNext(e) {
+      e.preventDefault();
+      window.location.href = 'step5.html';
+      return false;
+    }
+  </script>
+</body>
+</html>

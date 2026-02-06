@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application - Step 3: Education</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <h1>Product Manager Application</h1>
+
+  <ul class="step-indicator">
+    <li class="completed">1. Personal</li>
+    <li class="completed">2. Experience</li>
+    <li class="active">3. Education</li>
+    <li>4. References</li>
+    <li>5. Review</li>
+  </ul>
+
+  <form id="step3-form" onsubmit="return handleNext(event)">
+    <h2>Education</h2>
+
+    <div class="form-group">
+      <label for="degree" class="required">Highest Degree</label>
+      <select id="degree" name="degree" required>
+        <option value="">Select...</option>
+        <option value="high_school">High School</option>
+        <option value="associate">Associate's Degree</option>
+        <option value="bachelor">Bachelor's Degree</option>
+        <option value="master">Master's Degree</option>
+        <option value="phd">Ph.D.</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="field_of_study" class="required">Field of Study</label>
+      <input type="text" id="field_of_study" name="field_of_study" required placeholder="e.g., Computer Science, Business Administration">
+    </div>
+
+    <div class="form-group">
+      <label for="school" class="required">School/University</label>
+      <input type="text" id="school" name="school" required>
+    </div>
+
+    <div class="form-group">
+      <label for="graduation_year" class="required">Graduation Year</label>
+      <select id="graduation_year" name="graduation_year" required>
+        <option value="">Select...</option>
+        <option value="2025">2025</option>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+        <option value="2018">2018</option>
+        <option value="2017">2017</option>
+        <option value="2016">2016</option>
+        <option value="2015">2015 or earlier</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="certifications">Relevant Certifications (Optional)</label>
+      <textarea id="certifications" name="certifications" rows="3" placeholder="List any relevant certifications (PMP, CSPO, etc.)"></textarea>
+    </div>
+
+    <div class="nav-buttons">
+      <a href="step2.html" class="btn btn-secondary">&larr; Back</a>
+      <button type="submit">Next &rarr;</button>
+    </div>
+  </form>
+
+  <script>
+    function handleNext(e) {
+      e.preventDefault();
+      window.location.href = 'step4.html';
+      return false;
+    }
+  </script>
+</body>
+</html>

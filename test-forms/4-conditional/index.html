@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply - Senior Backend Engineer</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .loading-spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #f3f3f3;
+      border-top: 2px solid #2557a7;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .field-loading {
+      color: #666;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Senior Backend Engineer Application</h1>
+  <p>Fields marked with * are required. Additional fields may appear based on your responses.</p>
+
+  <form id="application-form" onsubmit="return handleSubmit(event)">
+
+    <!-- Basic Info -->
+    <div class="form-group">
+      <label for="name" class="required">Full Name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="required">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone" class="required">Phone</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+
+    <!-- Visa Sponsorship Conditional -->
+    <div class="form-group">
+      <label for="work_authorization" class="required">Are you authorized to work in the US?</label>
+      <select id="work_authorization" name="work_authorization" required onchange="toggleVisaFields()">
+        <option value="">Select...</option>
+        <option value="citizen">US Citizen</option>
+        <option value="green_card">Green Card Holder</option>
+        <option value="visa">Work Visa (H1B, L1, etc.)</option>
+        <option value="no">No, I require sponsorship</option>
+      </select>
+    </div>
+
+    <div id="visa-fields" class="hidden">
+      <div class="form-group">
+        <label for="visa_type" class="required">Current Visa Type</label>
+        <select id="visa_type" name="visa_type">
+          <option value="">Select...</option>
+          <option value="h1b">H1B</option>
+          <option value="l1">L1</option>
+          <option value="opt">OPT/CPT</option>
+          <option value="tn">TN</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="visa_expiration" class="required">Visa Expiration Date</label>
+        <input type="date" id="visa_expiration" name="visa_expiration">
+      </div>
+
+      <div class="form-group">
+        <label for="sponsorship_needed">Do you need visa sponsorship/transfer?</label>
+        <select id="sponsorship_needed" name="sponsorship_needed">
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Experience Level Conditional -->
+    <div class="form-group">
+      <label for="years_experience" class="required">Years of Professional Experience</label>
+      <select id="years_experience" name="years_experience" required onchange="toggleSeniorFields()">
+        <option value="">Select...</option>
+        <option value="0-2">0-2 years</option>
+        <option value="3-5">3-5 years</option>
+        <option value="5-8">5-8 years</option>
+        <option value="8+">8+ years</option>
+      </select>
+    </div>
+
+    <div id="senior-fields" class="hidden">
+      <div class="form-group">
+        <label for="team_size" class="required">Largest Team Size You've Led</label>
+        <select id="team_size" name="team_size">
+          <option value="">Select...</option>
+          <option value="none">None (IC only)</option>
+          <option value="1-3">1-3 engineers</option>
+          <option value="4-8">4-8 engineers</option>
+          <option value="8+">8+ engineers</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="architecture_experience">Have you designed systems handling 1M+ requests/day?</label>
+        <select id="architecture_experience" name="architecture_experience">
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="mentorship">Describe your experience mentoring junior engineers</label>
+        <textarea id="mentorship" name="mentorship" rows="3"></textarea>
+      </div>
+    </div>
+
+    <!-- Cascading Dropdown with Async Loading (simulates backend call) -->
+    <div class="form-group">
+      <label for="country" class="required">Country</label>
+      <select id="country" name="country" required onchange="loadStatesAsync()">
+        <option value="">Select country...</option>
+        <option value="us">United States</option>
+        <option value="ca">Canada</option>
+        <option value="uk">United Kingdom</option>
+        <option value="de">Germany</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="state_province" class="required">State/Province <span id="state-loading" class="hidden"><span class="loading-spinner"></span> Loading...</span></label>
+      <select id="state_province" name="state_province" required disabled>
+        <option value="">Select country first...</option>
+      </select>
+    </div>
+
+    <!-- Relocation Conditional -->
+    <div class="form-group">
+      <label for="current_city" class="required">City</label>
+      <input type="text" id="current_city" name="current_city" required placeholder="City name">
+    </div>
+
+    <div class="form-group">
+      <label for="willing_relocate" class="required">Are you willing to relocate?</label>
+      <select id="willing_relocate" name="willing_relocate" required onchange="toggleRelocationFields()">
+        <option value="">Select...</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+        <option value="remote_only">No, remote only</option>
+      </select>
+    </div>
+
+    <div id="relocation-fields" class="hidden">
+      <div class="form-group">
+        <label for="preferred_locations">Preferred Locations (select all that apply)</label>
+        <select id="preferred_locations" name="preferred_locations" multiple size="4">
+          <option value="sf">San Francisco, CA</option>
+          <option value="nyc">New York, NY</option>
+          <option value="seattle">Seattle, WA</option>
+          <option value="austin">Austin, TX</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="relocation_timeline">How soon could you relocate?</label>
+        <select id="relocation_timeline" name="relocation_timeline">
+          <option value="">Select...</option>
+          <option value="immediate">Immediately</option>
+          <option value="2_weeks">Within 2 weeks</option>
+          <option value="1_month">Within 1 month</option>
+          <option value="3_months">Within 3 months</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="relocation_assistance">Do you require relocation assistance?</label>
+        <select id="relocation_assistance" name="relocation_assistance">
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Standard Fields -->
+    <div class="form-group">
+      <label for="resume" class="required">Resume</label>
+      <input type="file" id="resume" name="resume" required accept=".pdf,.doc,.docx">
+    </div>
+
+    <div class="form-group">
+      <label for="github">GitHub Profile (Optional)</label>
+      <input type="url" id="github" name="github" placeholder="https://github.com/username">
+    </div>
+
+    <div class="form-group">
+      <label for="why_interested">Why are you interested in this role?</label>
+      <textarea id="why_interested" name="why_interested" rows="4"></textarea>
+    </div>
+
+    <button type="submit">Submit Application</button>
+  </form>
+
+  <script>
+    function toggleVisaFields() {
+      const select = document.getElementById('work_authorization');
+      const visaFields = document.getElementById('visa-fields');
+
+      if (select.value === 'visa' || select.value === 'no') {
+        visaFields.classList.remove('hidden');
+        // Make conditional fields required when visible
+        visaFields.querySelectorAll('select, input').forEach(el => {
+          if (el.closest('.form-group').querySelector('.required')) {
+            el.required = true;
+          }
+        });
+      } else {
+        visaFields.classList.add('hidden');
+        visaFields.querySelectorAll('select, input').forEach(el => {
+          el.required = false;
+        });
+      }
+    }
+
+    function toggleSeniorFields() {
+      const select = document.getElementById('years_experience');
+      const seniorFields = document.getElementById('senior-fields');
+
+      if (select.value === '5-8' || select.value === '8+') {
+        seniorFields.classList.remove('hidden');
+      } else {
+        seniorFields.classList.add('hidden');
+      }
+    }
+
+    function toggleRelocationFields() {
+      const select = document.getElementById('willing_relocate');
+      const relocationFields = document.getElementById('relocation-fields');
+
+      if (select.value === 'yes') {
+        relocationFields.classList.remove('hidden');
+      } else {
+        relocationFields.classList.add('hidden');
+      }
+    }
+
+    // Simulated backend data for states/provinces
+    const stateData = {
+      us: [
+        { value: 'ca', label: 'California' },
+        { value: 'ny', label: 'New York' },
+        { value: 'tx', label: 'Texas' },
+        { value: 'wa', label: 'Washington' },
+        { value: 'ma', label: 'Massachusetts' }
+      ],
+      ca: [
+        { value: 'on', label: 'Ontario' },
+        { value: 'bc', label: 'British Columbia' },
+        { value: 'qc', label: 'Quebec' },
+        { value: 'ab', label: 'Alberta' }
+      ],
+      uk: [
+        { value: 'eng', label: 'England' },
+        { value: 'sco', label: 'Scotland' },
+        { value: 'wal', label: 'Wales' },
+        { value: 'ni', label: 'Northern Ireland' }
+      ],
+      de: [
+        { value: 'by', label: 'Bavaria' },
+        { value: 'be', label: 'Berlin' },
+        { value: 'hh', label: 'Hamburg' },
+        { value: 'nw', label: 'North Rhine-Westphalia' }
+      ]
+    };
+
+    // Async loading with simulated backend delay (1.5 seconds)
+    function loadStatesAsync() {
+      const countrySelect = document.getElementById('country');
+      const stateSelect = document.getElementById('state_province');
+      const loadingIndicator = document.getElementById('state-loading');
+      const country = countrySelect.value;
+
+      // Clear and disable state dropdown
+      stateSelect.innerHTML = '<option value="">Loading...</option>';
+      stateSelect.disabled = true;
+
+      if (!country) {
+        stateSelect.innerHTML = '<option value="">Select country first...</option>';
+        return;
+      }
+
+      // Show loading spinner
+      loadingIndicator.classList.remove('hidden');
+
+      // Simulate backend API call with 1.5 second delay
+      setTimeout(() => {
+        // Hide loading spinner
+        loadingIndicator.classList.add('hidden');
+
+        // Populate dropdown with "fetched" data
+        const states = stateData[country] || [];
+        stateSelect.innerHTML = '<option value="">Select state/province...</option>';
+        states.forEach(state => {
+          const option = document.createElement('option');
+          option.value = state.value;
+          option.textContent = state.label;
+          stateSelect.appendChild(option);
+        });
+
+        // Enable the dropdown
+        stateSelect.disabled = false;
+      }, 1500); // 1.5 second delay
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      window.location.href = 'confirmation.html';
+      return false;
+    }
+  </script>
+</body>
+</html>

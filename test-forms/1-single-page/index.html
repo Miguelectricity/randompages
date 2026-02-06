@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply - Software Engineer</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <h1>Software Engineer Application</h1>
+  <p>Join our engineering team! Fill out the form below to apply.</p>
+
+  <form id="application-form" onsubmit="return handleSubmit(event)">
+    <div class="form-group">
+      <label for="name" class="required">Full Name</label>
+      <input type="text" id="name" name="name" required placeholder="John Doe">
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="required">Email Address</label>
+      <input type="email" id="email" name="email" required placeholder="john@example.com">
+    </div>
+
+    <div class="form-group">
+      <label for="phone" class="required">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+    </div>
+
+    <div class="form-group">
+      <label for="linkedin">LinkedIn Profile</label>
+      <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/johndoe">
+    </div>
+
+    <div class="form-group">
+      <label for="resume" class="required">Resume</label>
+      <input type="file" id="resume" name="resume" required accept=".pdf,.doc,.docx">
+    </div>
+
+    <div class="form-group">
+      <label for="cover_letter">Cover Letter</label>
+      <textarea id="cover_letter" name="cover_letter" placeholder="Tell us why you'd be a great fit..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="start_date" class="required">Earliest Start Date</label>
+      <input type="date" id="start_date" name="start_date" required>
+    </div>
+
+    <div class="form-group">
+      <label for="salary">Desired Salary (USD)</label>
+      <input type="number" id="salary" name="salary" placeholder="100000" min="0" step="1000">
+    </div>
+
+    <button type="submit">Submit Application</button>
+  </form>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      window.location.href = 'confirmation.html';
+      return false;
+    }
+  </script>
+</body>
+</html>

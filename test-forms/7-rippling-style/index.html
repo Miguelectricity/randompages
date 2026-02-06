@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply - CFD/Co-Simulation Engineer III</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    :root {
+      --color-primary: #020c3d;
+      --color-link: #45597a;
+      --color-border: #e5e7eb;
+      --color-text: #202022;
+      --color-muted: #716f6c;
+      --color-error: #dc2626;
+      --color-bg: #fff;
+      --color-bg-muted: #f9fafb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--color-bg-muted);
+      margin: 0;
+      padding: 0;
+      color: var(--color-text);
+    }
+
+    .app-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--color-bg);
+      min-height: 100vh;
+    }
+
+    .header {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .header h6 {
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0;
+      color: var(--color-text);
+    }
+
+    .exit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: none;
+      color: var(--color-text);
+      font-size: 14px;
+      cursor: pointer;
+      padding: 8px 0;
+    }
+
+    .progress-bar {
+      height: 4px;
+      background: var(--color-border);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--color-primary);
+      width: 50%;
+    }
+
+    .form-container {
+      padding: 24px;
+    }
+
+    .form-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0 0 24px 0;
+      color: var(--color-text);
+    }
+
+    .field {
+      margin-bottom: 24px;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+
+    .field-label .required {
+      color: var(--color-error);
+      margin-left: 2px;
+    }
+
+    .field-helptext {
+      font-size: 13px;
+      color: var(--color-muted);
+      margin-top: 6px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"] {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      font-size: 16px;
+      color: var(--color-text);
+      background: var(--color-bg);
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px rgba(2, 12, 61, 0.1);
+    }
+
+    input::placeholder {
+      color: var(--color-muted);
+    }
+
+    textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      font-size: 16px;
+      color: var(--color-text);
+      background: var(--color-bg);
+      min-height: 120px;
+      resize: vertical;
+      font-family: inherit;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px rgba(2, 12, 61, 0.1);
+    }
+
+    select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      font-size: 16px;
+      color: var(--color-text);
+      background: var(--color-bg);
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23716f6c' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px rgba(2, 12, 61, 0.1);
+    }
+
+    /* File upload styling */
+    .file-upload {
+      border: 2px dashed var(--color-border);
+      border-radius: 8px;
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .file-upload:hover {
+      border-color: var(--color-muted);
+    }
+
+    .file-upload input[type="file"] {
+      display: none;
+    }
+
+    .file-upload-text {
+      color: var(--color-muted);
+      font-size: 14px;
+    }
+
+    /* Phone number with country code */
+    .phone-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .phone-group .country-code {
+      width: 100px;
+      flex-shrink: 0;
+    }
+
+    .phone-group input[type="tel"] {
+      flex: 1;
+    }
+
+    /* Location with search icon */
+    .location-input {
+      position: relative;
+    }
+
+    .location-input .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-muted);
+    }
+
+    .location-input input {
+      padding-left: 40px;
+    }
+
+    /* Section divider */
+    .divider {
+      height: 1px;
+      background: var(--color-border);
+      margin: 32px 0;
+    }
+
+    /* Custom question styling */
+    .custom-question {
+      margin-bottom: 36px;
+    }
+
+    .custom-question .question-text {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+
+    .custom-question .question-description {
+      font-size: 14px;
+      color: var(--color-muted);
+      margin-bottom: 12px;
+    }
+
+    /* Radio group */
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .radio-option input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      margin: 0;
+      cursor: pointer;
+      accent-color: var(--color-primary);
+    }
+
+    .radio-option label {
+      font-size: 14px;
+      color: var(--color-text);
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    /* Checkbox group */
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .checkbox-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .checkbox-option input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin: 0;
+      cursor: pointer;
+      accent-color: var(--color-primary);
+      border-radius: 4px;
+    }
+
+    .checkbox-option label {
+      font-size: 14px;
+      color: var(--color-text);
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    /* Clear selection / Add comment links */
+    .field-actions {
+      margin-top: 12px;
+    }
+
+    .field-action-btn {
+      background: none;
+      border: none;
+      color: var(--color-text);
+      font-size: 14px;
+      cursor: pointer;
+      padding: 8px 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .field-action-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* EEOC Section */
+    .eeoc-section {
+      background: var(--color-bg-muted);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .eeoc-section h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 16px 0;
+    }
+
+    .eeoc-section p {
+      font-size: 14px;
+      color: var(--color-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    /* SMS Opt-in */
+    .sms-optin {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .sms-optin input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--color-primary);
+    }
+
+    .sms-optin-text {
+      font-size: 14px;
+      color: var(--color-text);
+    }
+
+    .sms-optin-text .helptext {
+      display: block;
+      font-size: 13px;
+      color: var(--color-muted);
+      margin-top: 8px;
+    }
+
+    /* Terms */
+    .terms {
+      font-size: 13px;
+      color: var(--color-muted);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .terms a {
+      color: var(--color-link);
+      text-decoration: none;
+    }
+
+    .terms a:hover {
+      text-decoration: underline;
+    }
+
+    /* Submit button - matching Rippling's exact structure */
+    .submit-container {
+      position: sticky;
+      bottom: 0;
+      background: var(--color-bg);
+      padding: 16px 24px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .submit-btn {
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      padding: 12px 32px;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .submit-btn:hover:not(:disabled) {
+      background: #0a1854;
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Screen reader only */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <div class="header">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h6>Application: CFD/Co-Simulation Engineer III</h6>
+        <button data-disabled="false" data-testid="Exit to job board" type="button" class="exit-btn">
+          <span>Exit to job board</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div data-testid="progress-bar" role="progressbar" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" aria-label="Progress bar" class="progress-bar">
+      <div class="progress-bar-fill"></div>
+    </div>
+
+    <!-- Form -->
+    <form id="application-form">
+      <div class="form-container">
+        <h4 class="form-title">Application: CFD/Co-Simulation Engineer III</h4>
+
+        <!-- Resume Upload -->
+        <div class="field" data-testid="field">
+          <span class="field-label" id="field-8-label">
+            Résumé<span class="required">*</span>
+          </span>
+          <div class="file-upload">
+            <div data-testid="screen-reader-only" class="sr-only">Total 0 file selected</div>
+            <label data-testid="resume" tabindex="-1" aria-labelledby="field-8-label">
+              <input type="file" id="resume" name="resume" accept=".doc,.docx,.pdf" data-testid="input-resume" required>
+              <button data-disabled="false" data-testid="test_button" type="button" class="file-upload-text">
+                Drop or select (.doc / .docx / .pdf)
+              </button>
+            </label>
+          </div>
+          <span class="field-helptext">The résumé will be parsed to fill in the application details</span>
+        </div>
+
+        <!-- First Name -->
+        <div class="field" data-testid="field">
+          <span class="field-label" id="field-12-label">
+            First name<span class="required">*</span>
+          </span>
+          <div data-testid="first_name">
+            <input data-input="first_name" data-testid="input-first_name" id="field-12" aria-required="true" autocomplete="off" placeholder="First name" aria-labelledby="field-12-label" name="first_name" type="text" required>
+          </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="field" data-testid="field">
+          <span class="field-label" id="field-16-label">
+            Last name<span class="required">*</span>
+          </span>
+          <div data-testid="last_name">
+            <input data-input="last_name" data-testid="input-last_name" id="field-16" aria-required="true" autocomplete="off" placeholder="Last name" aria-labelledby="field-16-label" name="last_name" type="text" required>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="field" data-testid="field">
+          <span class="field-label" id="field-20-label">
+            Email<span class="required">*</span>
+          </span>
+          <div data-testid="email">
+            <input data-input="email" data-testid="input-email" id="field-20" aria-required="true" autocomplete="off" placeholder="Email" aria-labelledby="field-20-label" name="email" type="email" required>
+          </div>
+        </div>
+
+        <!-- Pronouns -->
+        <div class="field" data-testid="field">
+          <span class="field-label" id="field-24-label">
+            Pronouns
+          </span>
+          <div data-testid="pronouns_strategy">
+            <select id="field-24" name="pronouns" aria-labelledby="field-24-label">
+              <option value="">Search</option>
+              <option value="she/her">She/her/hers</option>
+              <option value="he/him">He/him/his</option>
+              <option value="they/them">They/them/theirs</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <span class="field-helptext">Add pronouns to your application so interviewers know how to refer to you when talking to or about you.</span>
+        </div>
+
+        <!-- Current Company -->
+        <div class="field" data-testid="field">
+          <span class="field-label" id="field-31-label">
+            Current company
+          </span>
+          <div data-testid="current_company">
+            <input data-input="current_company" data-testid="input-current_company" id="field-31" autocomplete="off" placeholder="Current company" aria-labelledby="field-31-label" name="current_company" type="text">
+          </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="field" data-testid="field">
+          <span class="field-label" id="field-35-label">
+            Phone number<span class="required">*</span>
+          </span>
+          <div class="phone-group">
+            <select class="country-code" name="phone_country_code" id="phone-code">
+              <option value="+1 US">+1 US</option>
+              <option value="+44 UK">+44 UK</option>
+              <option value="+91 IN">+91 IN</option>
+            </select>
+            <div data-testid="phone_number" style="flex: 1;">
+              <input data-input="phone_number" data-testid="input-phone_number" id="field-35" aria-required="true" autocomplete="off" inputmode="tel" placeholder="Phone number" aria-labelledby="field-35-label" name="phone_number" type="tel" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="field" data-testid="field">
+          <span class="field-label" id="field-46-label">
+            Location<span class="required">*</span>
+          </span>
+          <div data-testid="location" class="location-input">
+            <span class="search-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </span>
+            <input data-testid="input-undefined" id="field-46" aria-required="true" autocomplete="off" aria-labelledby="field-46-label" name="location" type="text" placeholder="Search location" required>
+          </div>
+        </div>
+
+        <!-- LinkedIn Link -->
+        <div class="field" data-testid="field">
+          <span class="field-label" id="field-55-label">
+            LinkedIn Link<span class="required">*</span>
+          </span>
+          <div data-testid="linkedin_link">
+            <input data-input="linkedin_link" data-testid="input-linkedin_link" id="field-55" aria-required="true" autocomplete="off" placeholder="LinkedIn Link" aria-labelledby="field-55-label" name="linkedin_link" type="url" required>
+          </div>
+        </div>
+
+        <!-- Cover Letter -->
+        <div class="field" data-testid="field">
+          <span class="field-label" id="field-59-label">
+            Cover letter
+          </span>
+          <div class="file-upload">
+            <div data-testid="screen-reader-only" class="sr-only">Total 0 file selected</div>
+            <label data-testid="cover_letter" tabindex="-1" aria-labelledby="field-59-label">
+              <input type="file" id="cover_letter" name="cover_letter" accept=".doc,.docx,.pdf" data-testid="input-cover_letter">
+              <button data-disabled="false" data-testid="test_button" type="button" class="file-upload-text">
+                Drop or select (.doc / .docx / .pdf)
+              </button>
+            </label>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Custom Question: When can you start -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">When can you start if you're hired?</p>
+          <div data-testid="customQuestions.start_date">
+            <input data-testid="input-customQuestions.start_date" id="field-63" aria-required="true" autocomplete="off" name="start_date" type="text" required>
+          </div>
+        </div>
+
+        <!-- Custom Question: Confirm city and state -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">Confirm the city and state in which you currently live</p>
+          <div data-testid="customQuestions.current_location">
+            <input data-testid="input-customQuestions.current_location" id="field-67" aria-required="true" autocomplete="off" name="current_location" type="text" required>
+          </div>
+        </div>
+
+        <!-- Custom Question: How did you hear about this position -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">How did you hear about this position?</p>
+          <div class="radio-group" data-testid="customQuestions.referral_source" id="field-71" role="radiogroup">
+            <div class="radio-option" data-testid="radio-label" data-value="DLB Website" role="radio" tabindex="0" aria-checked="false">
+              <input data-testid="radio-referral_source" name="referral_source" type="radio" value="DLB Website" id="radio-dlb">
+              <label for="radio-dlb">DLB Website</label>
+            </div>
+            <div class="radio-option" data-testid="radio-label" data-value="Employee Referral" role="radio" tabindex="-1" aria-checked="false">
+              <input data-testid="radio-referral_source" name="referral_source" type="radio" value="Employee Referral" id="radio-referral">
+              <label for="radio-referral">Employee Referral (If a DLB Associates employee referred you, please include their name in the comments section.)</label>
+            </div>
+            <div class="radio-option" data-testid="radio-label" data-value="External Recruiter" role="radio" tabindex="-1" aria-checked="false">
+              <input data-testid="radio-referral_source" name="referral_source" type="radio" value="External Recruiter" id="radio-recruiter">
+              <label for="radio-recruiter">External Recruiter (If you were introduced by an external recruiter, please include their name in the comments.)</label>
+            </div>
+            <div class="radio-option" data-testid="radio-label" data-value="LinkedIn" role="radio" tabindex="-1" aria-checked="false">
+              <input data-testid="radio-referral_source" name="referral_source" type="radio" value="LinkedIn" id="radio-linkedin">
+              <label for="radio-linkedin">LinkedIn</label>
+            </div>
+            <div class="radio-option" data-testid="radio-label" data-value="Indeed" role="radio" tabindex="-1" aria-checked="false">
+              <input data-testid="radio-referral_source" name="referral_source" type="radio" value="Indeed" id="radio-indeed">
+              <label for="radio-indeed">Indeed</label>
+            </div>
+            <div class="radio-option" data-testid="radio-label" data-value="Google" role="radio" tabindex="-1" aria-checked="false">
+              <input data-testid="radio-referral_source" name="referral_source" type="radio" value="Google" id="radio-google">
+              <label for="radio-google">Google</label>
+            </div>
+            <div class="radio-option" data-testid="radio-label" data-value="ZipRecruiter" role="radio" tabindex="-1" aria-checked="false">
+              <input data-testid="radio-referral_source" name="referral_source" type="radio" value="ZipRecruiter" id="radio-zip">
+              <label for="radio-zip">ZipRecruiter</label>
+            </div>
+            <div class="radio-option" data-testid="radio-label" data-value="Monster" role="radio" tabindex="-1" aria-checked="false">
+              <input data-testid="radio-referral_source" name="referral_source" type="radio" value="Monster" id="radio-monster">
+              <label for="radio-monster">Monster</label>
+            </div>
+            <div class="radio-option" data-testid="radio-label" data-value="OTHER" role="radio" tabindex="-1" aria-checked="false">
+              <input data-testid="radio-referral_source" name="referral_source" type="radio" value="OTHER" id="radio-other">
+              <label for="radio-other">Other</label>
+            </div>
+          </div>
+          <div class="field-actions">
+            <button data-disabled="false" data-testid="Clear selection" type="button" class="field-action-btn">
+              Clear selection
+            </button>
+          </div>
+          <div class="field-actions">
+            <button data-disabled="false" data-testid="Add comment" type="button" class="field-action-btn">
+              + Add comment
+            </button>
+          </div>
+        </div>
+
+        <!-- Custom Question: Target salary -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">What base salary are you targeting in your next role?</p>
+          <div data-testid="customQuestions.target_salary">
+            <input data-testid="input-customQuestions.target_salary" id="field-84" aria-required="true" autocomplete="off" name="target_salary" type="text" required>
+          </div>
+        </div>
+
+        <!-- Custom Question: E-Verify eligibility -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">DLB Associates participates in the E-Verify program with the Department of Homeland Security. If offered employment, would you be able to provide employment eligibility to work in the US?</p>
+          <div data-testid="customQuestions.everify">
+            <select id="field-88" name="everify" aria-required="true" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+              <option value="Visa">Visa</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Custom Question: Sponsorship -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">Now or anytime in the future would you require sponsorship to work in the US?</p>
+          <div data-testid="customQuestions.sponsorship">
+            <select id="field-94" name="sponsorship" aria-required="true" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+              <option value="Visa">Visa</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Custom Question: Accommodations -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">DLB provides reasonable accommodation for all positions. After reading through the Job Description in detail, will you be able to perform the Essential Functions of this position with or without accommodations? During the interview process if you need an accommodation please email careers@dlbassociates.com.</p>
+          <div class="checkbox-group" data-testid="customQuestions.accommodations" id="field-100" role="group">
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="Yes" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-accommodations" name="accommodations" type="checkbox" value="Yes" id="checkbox-acc-yes">
+              <label for="checkbox-acc-yes">Yes</label>
+            </div>
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="No" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-accommodations" name="accommodations" type="checkbox" value="No" id="checkbox-acc-no">
+              <label for="checkbox-acc-no">No</label>
+            </div>
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="OTHER" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-accommodations" name="accommodations" type="checkbox" value="OTHER" id="checkbox-acc-other">
+              <label for="checkbox-acc-other">Other</label>
+            </div>
+          </div>
+          <div class="field-actions">
+            <button data-disabled="false" data-testid="Add comment" type="button" class="field-action-btn">
+              + Add comment
+            </button>
+          </div>
+        </div>
+
+        <!-- Custom Question: Non-compete -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">Are you covered by any restrictive covenants or non-compete agreements that may interfere with your ability to perform work for DLB and our clients? If so, are you willing to provide a copy for our review?</p>
+          <div data-testid="customQuestions.noncompete">
+            <select id="field-107" name="noncompete" aria-required="true" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="field-actions">
+            <button data-disabled="false" data-testid="Add comment" type="button" class="field-action-btn">
+              + Add comment
+            </button>
+          </div>
+        </div>
+
+        <!-- Custom Question: Self-employed -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">Are you operating a self-employed business that is related to any of the services we offer at DLB?</p>
+          <div data-testid="customQuestions.selfemployed">
+            <select id="field-113" name="selfemployed" aria-required="true" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="field-actions">
+            <button data-disabled="false" data-testid="Add comment" type="button" class="field-action-btn">
+              + Add comment
+            </button>
+          </div>
+        </div>
+
+        <!-- Custom Question: Microsoft Teams experience -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">What is your experience with Microsoft Teams or similar platforms?</p>
+          <div data-testid="customQuestions.teams_experience">
+            <input data-testid="input-customQuestions.teams_experience" id="field-119" aria-required="true" autocomplete="off" name="teams_experience" type="text" required>
+          </div>
+        </div>
+
+        <!-- Custom Question: Project list -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">Please provide a representative list of projects you have designed.</p>
+          <p class="question-description">You may include project names, types, or brief descriptions as applicable.</p>
+          <div data-testid="customQuestions.project_list">
+            <textarea id="field-123" name="project_list" aria-multiline="true" maxlength="10000" required></textarea>
+          </div>
+        </div>
+
+        <!-- Custom Question: Revit experience -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">How would you best describe your overall experience level with Autodesk Revit?</p>
+          <div class="checkbox-group" data-testid="customQuestions.revit_experience" id="field-127" role="group">
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="No experience" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-revit" name="revit_experience" type="checkbox" value="No experience" id="checkbox-revit-none">
+              <label for="checkbox-revit-none">No experience</label>
+            </div>
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="Beginner" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-revit" name="revit_experience" type="checkbox" value="Beginner" id="checkbox-revit-beginner">
+              <label for="checkbox-revit-beginner">Beginner (basic navigation and modeling)</label>
+            </div>
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="Intermediate" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-revit" name="revit_experience" type="checkbox" value="Intermediate" id="checkbox-revit-intermediate">
+              <label for="checkbox-revit-intermediate">Intermediate (creating families, managing worksets, collaborating with other disciplines)</label>
+            </div>
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="Advanced" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-revit" name="revit_experience" type="checkbox" value="Advanced" id="checkbox-revit-advanced">
+              <label for="checkbox-revit-advanced">Advanced (leading Revit model setup, complex family creation, multi-discipline coordination, QA/QC reviews)</label>
+            </div>
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="OTHER" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-revit" name="revit_experience" type="checkbox" value="OTHER" id="checkbox-revit-other">
+              <label for="checkbox-revit-other">Other</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Question: Professional licenses -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">Do you hold any professional licenses or certifications (PE, EIT, LEED, NICET, etc.)?</p>
+          <div class="radio-group" data-testid="customQuestions.licenses" id="field-136" role="radiogroup">
+            <div class="radio-option" data-testid="radio-label" data-value="Yes" role="radio" tabindex="0" aria-checked="false">
+              <input data-testid="radio-licenses" name="licenses" type="radio" value="Yes" id="radio-license-yes">
+              <label for="radio-license-yes">Yes (please specify in the comments)</label>
+            </div>
+            <div class="radio-option" data-testid="radio-label" data-value="No" role="radio" tabindex="-1" aria-checked="false">
+              <input data-testid="radio-licenses" name="licenses" type="radio" value="No" id="radio-license-no">
+              <label for="radio-license-no">No</label>
+            </div>
+          </div>
+          <div class="field-actions">
+            <button data-disabled="false" data-testid="Clear selection" type="button" class="field-action-btn">
+              Clear selection
+            </button>
+          </div>
+          <div class="field-actions">
+            <button data-disabled="false" data-testid="Add comment" type="button" class="field-action-btn">
+              + Add comment
+            </button>
+          </div>
+        </div>
+
+        <!-- Custom Question: Data center experience -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">What best describes your experience with data center projects? (Select all that apply)</p>
+          <div class="checkbox-group" data-testid="customQuestions.datacenter_experience" id="field-142" role="group">
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="No prior data center experience" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-datacenter" name="datacenter_experience" type="checkbox" value="No prior data center experience" id="checkbox-dc-none">
+              <label for="checkbox-dc-none">No prior data center experience</label>
+            </div>
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="Exposure to data center projects but not in a design role" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-datacenter" name="datacenter_experience" type="checkbox" value="Exposure to data center projects but not in a design role" id="checkbox-dc-exposure">
+              <label for="checkbox-dc-exposure">Exposure to data center projects but not in a design role</label>
+            </div>
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="1-2 years of experience supporting data center design" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-datacenter" name="datacenter_experience" type="checkbox" value="1-2 years of experience supporting data center design" id="checkbox-dc-1-2">
+              <label for="checkbox-dc-1-2">1-2 years of experience supporting data center design</label>
+            </div>
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="3-5 years of experience supporting data center design" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-datacenter" name="datacenter_experience" type="checkbox" value="3-5 years of experience supporting data center design" id="checkbox-dc-3-5">
+              <label for="checkbox-dc-3-5">3-5 years of experience supporting data center design</label>
+            </div>
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="5+ years of experience supporting data center design" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-datacenter" name="datacenter_experience" type="checkbox" value="5+ years of experience supporting data center design" id="checkbox-dc-5plus">
+              <label for="checkbox-dc-5plus">5+ years of experience supporting data center design</label>
+            </div>
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="Experience with hyperscale data centers" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-datacenter" name="datacenter_experience" type="checkbox" value="Experience with hyperscale data centers" id="checkbox-dc-hyperscale">
+              <label for="checkbox-dc-hyperscale">Experience with hyperscale data centers</label>
+            </div>
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="Experience supporting construction administration or commissioning for data centers" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-datacenter" name="datacenter_experience" type="checkbox" value="Experience supporting construction administration or commissioning for data centers" id="checkbox-dc-construction">
+              <label for="checkbox-dc-construction">Experience supporting construction administration or commissioning for data centers</label>
+            </div>
+            <div class="checkbox-option" data-testid="checkbox-label" data-value="Experience leading multi-disciplinary design teams on data center projects" role="checkbox" tabindex="0" aria-checked="false">
+              <input data-testid="checkbox-datacenter" name="datacenter_experience" type="checkbox" value="Experience leading multi-disciplinary design teams on data center projects" id="checkbox-dc-leading">
+              <label for="checkbox-dc-leading">Experience leading multi-disciplinary design teams on data center projects</label>
+            </div>
+          </div>
+          <div class="field-actions">
+            <button data-disabled="false" data-testid="Add comment" type="button" class="field-action-btn">
+              + Add comment
+            </button>
+          </div>
+        </div>
+
+        <!-- Custom Question: Message to Hiring Team -->
+        <div class="custom-question" data-testid="field">
+          <p class="question-text">Message to the Hiring Team</p>
+          <div data-testid="customQuestions.message">
+            <textarea id="field-154" name="message_to_team" aria-multiline="true" maxlength="10000"></textarea>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- EEOC Section -->
+        <div class="eeoc-section">
+          <h3>U.S. Equal Opportunity Employment Information (Completion is voluntary)</h3>
+          <p>Individuals seeking employment at our company are considered without regards to race, color, religion, national origin, age, sex, marital status, ancestry, physical or mental disability, veteran status, gender identity, or sexual orientation. You are being given the opportunity to provide the following information in order to help us comply with federal and state Equal Employment Opportunity/Affirmative Action record keeping, reporting, and other legal requirements.</p>
+          <p>Completion of the form is entirely voluntary. Whatever your decision, it will not be considered in the hiring process or thereafter. Any information that you do provide will be recorded and maintained in a confidential file.</p>
+
+          <div class="field" data-testid="field">
+            <span class="field-label" id="field-158-label">Gender</span>
+            <div data-testid="eeoc.gender">
+              <select id="field-158" name="eeoc_gender" aria-labelledby="field-158-label">
+                <option value="">Select...</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="non-binary">Non-binary</option>
+                <option value="decline">Decline to self-identify</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field" data-testid="field">
+            <span class="field-label" id="field-164-label">Please identify your race</span>
+            <div data-testid="eeoc.race">
+              <select id="field-164" name="eeoc_race" aria-labelledby="field-164-label">
+                <option value="">Select...</option>
+                <option value="american-indian">American Indian or Alaska Native</option>
+                <option value="asian">Asian</option>
+                <option value="black">Black or African American</option>
+                <option value="hispanic">Hispanic or Latino</option>
+                <option value="native-hawaiian">Native Hawaiian or Other Pacific Islander</option>
+                <option value="white">White</option>
+                <option value="two-or-more">Two or More Races</option>
+                <option value="decline">Decline to self-identify</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field" data-testid="field">
+            <span class="field-label" id="field-171-label">Are you Hispanic/Latino?</span>
+            <div data-testid="eeoc.hispanicOrLatino">
+              <select id="field-171" name="eeoc_hispanic" aria-labelledby="field-171-label">
+                <option value="">Select...</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="decline">Decline to self-identify</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Veteran Status VEVRAA Section -->
+        <div class="eeoc-section">
+          <p>If you believe you belong to any of the categories of protected veterans listed below, please indicate by making the appropriate selection. As a government contractor subject to Vietnam Era Veterans Readjustment Assistance Act (VEVRAA), we request this information in order to measure the effectiveness of the outreach and positive recruitment efforts we undertake pursuant to VEVRAA. Classification of protected categories is as follows:</p>
+
+          <p>A "disabled veteran" is one of the following: a veteran of the U.S. military, ground, naval or air service who is entitled to compensation (or who but for the receipt of military retired pay would be entitled to compensation) under laws administered by the Secretary of Veterans Affairs; or a person who was discharged or released from active duty because of a service-connected disability.</p>
+
+          <p>A "recently separated veteran" means any veteran during the three-year period beginning on the date of such veteran's discharge or release from active duty in the U.S. military, ground, naval, or air service.</p>
+
+          <p>An "active duty wartime or campaign badge veteran" means a veteran who served on active duty in the U.S. military, ground, naval or air service during a war, or in a campaign or expedition for which a campaign badge has been authorized under the laws administered by the Department of Defense.</p>
+
+          <p>An "Armed forces service medal veteran" means a veteran who, while serving on active duty in the U.S. military, ground, naval or air service, participated in a United States military operation for which an Armed Forces service medal was awarded pursuant to Executive Order 12985.</p>
+
+          <div class="field" data-testid="field">
+            <span class="field-label" id="field-veteran-status-label">Veteran Status</span>
+            <div data-testid="eeoc.veteranStatusDetailed">
+              <select id="field-veteran-status" name="eeoc_veteran_detailed" aria-labelledby="field-veteran-status-label">
+                <option value="">Select...</option>
+                <option value="disabled">I am a disabled veteran</option>
+                <option value="recently-separated">I am a recently separated veteran</option>
+                <option value="active-duty-wartime">I am an active duty wartime or campaign badge veteran</option>
+                <option value="armed-forces-medal">I am an Armed forces service medal veteran</option>
+                <option value="not-veteran">I am not a protected veteran</option>
+                <option value="multiple">I identify with more than one of the above classifications</option>
+                <option value="decline">I don't wish to answer</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form CC-305 Disability Self-Identification Section -->
+        <div class="eeoc-section">
+          <h3>Form CC-305</h3>
+          <p style="font-size: 12px; color: var(--color-muted); margin-bottom: 16px;">OMB Control Number 1250-0005</p>
+
+          <h3>Voluntary Self-Identification of Disability</h3>
+
+          <h4 style="font-size: 15px; font-weight: 600; margin: 16px 0 8px 0;">Why are you being asked to complete this form?</h4>
+          <p>Because we do business with the government, we must reach out to, hire, and provide equal opportunity to qualified people with disabilities. To help us measure how well we are doing, we are asking you to tell us if you have a disability or if you ever had a disability.</p>
+
+          <p>Completing this form is voluntary, but we hope that you will choose to fill it out. If you are applying for a job, any answer you give will be kept private and will not be used against you in any way. If you already work for us, your answer will not be used against you in any way.</p>
+
+          <p>Because a person may become disabled at any time, we are required to ask all of our employees to update their information every five years. You may voluntarily self-identify as having a disability on this form without fear of any punishment because you did not identify as having a disability earlier.</p>
+
+          <h4 style="font-size: 15px; font-weight: 600; margin: 16px 0 8px 0;">How do you know if you have a disability?</h4>
+          <p>You are considered to have a disability if you have a physical or mental impairment or medical condition that substantially limits a major life activity, or if you have a history or record of such an impairment or medical condition.</p>
+
+          <p style="margin-bottom: 8px;">Disabilities include, but are not limited to:</p>
+          <ul style="font-size: 14px; color: var(--color-muted); line-height: 1.8; margin: 0 0 16px 20px; padding: 0;">
+            <li>Blindness</li>
+            <li>Deafness</li>
+            <li>Autism</li>
+            <li>Cancer</li>
+            <li>Diabetes</li>
+            <li>Epilepsy</li>
+            <li>HIV/AIDS</li>
+            <li>Schizophrenia</li>
+            <li>Muscular dystrophy</li>
+            <li>Cerebral palsy</li>
+            <li>Multiple sclerosis (MS)</li>
+            <li>Major depression</li>
+            <li>Bipolar disorder</li>
+            <li>Post-traumatic stress disorder (PTSD)</li>
+            <li>Obsessive compulsive disorder</li>
+            <li>Intellectual disability (previously called mental retardation)</li>
+            <li>Missing limbs or partially missing limbs</li>
+            <li>Impairments requiring the use of a wheelchair</li>
+          </ul>
+
+          <div class="field" data-testid="field">
+            <span class="field-label" id="field-disability-cc305-label">Disability Status</span>
+            <div data-testid="eeoc.disabilityStatusCC305">
+              <select id="field-disability-cc305" name="eeoc_disability_cc305" aria-labelledby="field-disability-cc305-label">
+                <option value="">Select...</option>
+                <option value="yes">Yes, I have a disability (or previously had a disability)</option>
+                <option value="no">No, I don't have a disability</option>
+                <option value="decline">I don't wish to answer</option>
+              </select>
+            </div>
+          </div>
+
+          <p style="font-size: 12px; color: var(--color-muted); margin-top: 16px; line-height: 1.6;">Section 503 of the Rehabilitation Act of 1973, as amended. For more information about this form or the equal employment obligations of Federal contractors, visit the U.S. Department of Labor's Office of Federal Contract Compliance Programs (OFCCP) website at <a href="https://www.dol.gov/ofccp" target="_blank" style="color: var(--color-link);">www.dol.gov/ofccp</a>.</p>
+
+          <p style="font-size: 12px; color: var(--color-muted); margin-top: 12px; line-height: 1.6;"><strong>PUBLIC BURDEN STATEMENT:</strong> According to the Paperwork Reduction Act of 1995 no persons are required to respond to a collection of information unless such collection displays a valid OMB control number. This survey should take about 5 minutes to complete.</p>
+        </div>
+
+        <!-- SMS Opt-in -->
+        <div class="sms-optin" data-testid="field">
+          <input data-testid="checkbox-sms_opt_in" name="sms_opt_in" type="checkbox" id="sms-opt-in" checked>
+          <div class="sms-optin-text">
+            <label for="sms-opt-in">I would like to receive SMS messages from DLB Associates about my application</label>
+            <span class="helptext">By leaving this box checked, you agree to receive SMS messages from DLB Associates regarding your job application status, including updates on your application progress and interview scheduling. Message and data rates may apply. Message frequency varies. Reply STOP to unsubscribe.</span>
+          </div>
+        </div>
+
+        <!-- Terms -->
+        <div class="terms">
+          <p>By clicking "Apply" you agree to Rippling's <a href="https://app.rippling.com/legal/user" target="_blank">Terms of Service</a> and <a href="https://app.rippling.com/legal/employee-privacy" target="_blank">Candidates, Employees and Workers Privacy Notice</a>.</p>
+          <p>DLB Associates uses AI to analyze applications. To learn more or opt out <a href="#">click here</a>.</p>
+        </div>
+
+        <!-- Hidden field for AI opt-out -->
+        <div class="field" data-testid="field" style="display: none;">
+          <div data-testid="aiOptOut">
+            <input data-input="aiOptOut" data-testid="input-aiOptOut" id="field-193" autocomplete="off" type="hidden" name="aiOptOut" value="false">
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button - matching Rippling's exact structure -->
+      <div class="submit-container">
+        <div class="button-group">
+          <div data-testid="ButtonGroup">
+            <div>
+              <div>
+                <div>
+                  <button data-disabled="false" data-testid="Apply" type="submit" class="submit-btn">
+                    <span>
+                      <span>Apply</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('application-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      window.location.href = 'confirmation.html';
+    });
+
+    // File upload click handlers
+    document.querySelectorAll('.file-upload').forEach(function(el) {
+      el.addEventListener('click', function() {
+        this.querySelector('input[type="file"]').click();
+      });
+    });
+
+    // Clear selection handlers
+    document.querySelectorAll('[data-testid="Clear selection"]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const radioGroup = this.closest('.custom-question').querySelector('.radio-group');
+        if (radioGroup) {
+          radioGroup.querySelectorAll('input[type="radio"]').forEach(function(radio) {
+            radio.checked = false;
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
