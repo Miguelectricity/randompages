@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application for Sr. Electrical Design Engineer at Industrial Electric Manufacturing</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    :root {
+      --color-primary: #00857c;
+      --color-primary-hover: #006b64;
+      --color-text: #2d3748;
+      --color-text-muted: #718096;
+      --color-border: #e2e8f0;
+      --color-bg: #fff;
+      --color-bg-muted: #f7fafc;
+      --color-bg-hover: #edf2f7;
+      --color-error: #e53e3e;
+      --color-link: #00857c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--color-bg-muted);
+      margin: 0;
+      padding: 0;
+      color: var(--color-text);
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Header / Banner */
+    .header-banner {
+      background: var(--color-bg);
+      padding: 24px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--color-text-muted);
+      font-size: 14px;
+      text-decoration: none;
+      margin-bottom: 16px;
+    }
+
+    .back-link:hover {
+      color: var(--color-text);
+    }
+
+    .back-link svg {
+      margin-right: 8px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .job-info h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+      color: var(--color-text);
+    }
+
+    .job-location {
+      color: var(--color-text-muted);
+      font-size: 16px;
+    }
+
+    .new-badge {
+      display: inline-block;
+      background: #e6fffa;
+      color: var(--color-primary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Main content area */
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Job Description Panel */
+    .job-description {
+      background: var(--color-bg);
+      padding: 32px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .job-description h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0 0 16px 0;
+      color: var(--color-text);
+    }
+
+    .job-description h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 24px 0 12px 0;
+      color: var(--color-text);
+    }
+
+    .job-description p {
+      margin: 0 0 16px 0;
+      color: var(--color-text);
+    }
+
+    .job-description ul {
+      margin: 0 0 16px 0;
+      padding-left: 20px;
+    }
+
+    .job-description li {
+      margin-bottom: 8px;
+      color: var(--color-text);
+    }
+
+    /* Application Form Panel */
+    .application-panel {
+      background: var(--color-bg);
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 20px;
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+    }
+
+    .application-panel h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 20px 0;
+      color: var(--color-text);
+    }
+
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+
+    .form-group label .required {
+      color: var(--color-error);
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="url"],
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      font-size: 14px;
+      color: var(--color-text);
+      background: var(--color-bg);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(0, 133, 124, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    /* Greenhouse-style Custom Dropdown Component */
+    .gh-select {
+      position: relative;
+      width: 100%;
+    }
+
+    .gh-select__control {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      background: var(--color-bg);
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      min-height: 42px;
+    }
+
+    .gh-select__control:hover {
+      border-color: var(--color-text-muted);
+    }
+
+    .gh-select__control--focused {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(0, 133, 124, 0.1);
+    }
+
+    .gh-select__value {
+      flex: 1;
+      font-size: 14px;
+      color: var(--color-text);
+    }
+
+    .gh-select__placeholder {
+      color: var(--color-text-muted);
+    }
+
+    .gh-select__indicator {
+      display: flex;
+      align-items: center;
+      color: var(--color-text-muted);
+      transition: transform 0.2s;
+    }
+
+    .gh-select__indicator--open {
+      transform: rotate(180deg);
+    }
+
+    .gh-select__input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    .gh-select__menu-portal {
+      position: fixed;
+      z-index: 9999;
+    }
+
+    .gh-select__menu {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      margin-top: 4px;
+      max-height: 250px;
+      overflow-y: auto;
+    }
+
+    .gh-select__menu-list {
+      padding: 4px 0;
+    }
+
+    .gh-select__option {
+      padding: 10px 12px;
+      font-size: 14px;
+      color: var(--color-text);
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+
+    .gh-select__option:hover {
+      background: var(--color-bg-hover);
+    }
+
+    .gh-select__option--selected {
+      background: rgba(0, 133, 124, 0.1);
+      color: var(--color-primary);
+    }
+
+    .gh-select__option--disabled {
+      color: var(--color-text-muted);
+      cursor: not-allowed;
+    }
+
+    .gh-select__loading {
+      padding: 10px 12px;
+      font-size: 14px;
+      color: var(--color-text-muted);
+      text-align: center;
+    }
+
+    /* Phone field with country code */
+    .phone-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .phone-group .country-select {
+      width: 140px;
+      flex-shrink: 0;
+    }
+
+    .phone-group input[type="tel"] {
+      flex: 1;
+    }
+
+    /* File upload styling */
+    .file-upload-group {
+      margin-bottom: 16px;
+    }
+
+    .file-upload-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+
+    .file-upload-options {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .file-upload-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      font-size: 14px;
+      color: var(--color-text);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .file-upload-btn:hover {
+      background: var(--color-bg-muted);
+      border-color: var(--color-primary);
+    }
+
+    .file-upload-btn input[type="file"] {
+      display: none;
+    }
+
+    .file-upload-divider {
+      color: var(--color-text-muted);
+      font-size: 14px;
+    }
+
+    .file-manual-btn {
+      background: none;
+      border: none;
+      color: var(--color-link);
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .file-upload-help {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--color-border);
+      margin: 24px 0;
+    }
+
+    .section-header {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px 24px;
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .submit-btn:hover {
+      background: var(--color-primary-hover);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--color-text-muted);
+      font-size: 12px;
+    }
+
+    .footer a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .powered-by {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border);
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    .powered-by .gh-logo {
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .job-alert-section {
+      background: var(--color-bg-muted);
+      border-radius: 6px;
+      padding: 16px;
+      margin-top: 24px;
+    }
+
+    .job-alert-section h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+    }
+
+    .job-alert-section p {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      margin: 0 0 12px 0;
+    }
+
+    .job-alert-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--color-link);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .job-alert-btn:hover {
+      border-color: var(--color-primary);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header-banner">
+      <a href="../index.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back to jobs
+      </a>
+      <div class="job-header">
+        <div class="job-info">
+          <span class="new-badge">New</span>
+          <h1>Sr. Electrical Design Engineer</h1>
+          <p class="job-location">Remote - US</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="job-description">
+        <h2>About IEM</h2>
+        <p>Industrial Electric Mfg. (IEM) is the largest independent full-line manufacturer of custom power distribution
+          systems in North America. Founded more than 75 years ago in Fremont, California, IEM grew alongside Silicon
+          Valley and today operates over 1.7 million square feet of manufacturing capacity.</p>
+
+        <h3>Position Summary</h3>
+        <p>The Senior Electrical Design Engineer is responsible for the design of low and medium voltage power systems
+          and acts as the primary technical interface for the equipment they are assigned.</p>
+
+        <h3>Key Responsibilities</h3>
+        <ul>
+          <li>Create bill of material and drawing packages for manufacture for complex and highly customized equipment</li>
+          <li>Performing design, troubleshooting, and commissioning job functions for assigned projects</li>
+          <li>Serve as primary technical point of contact for equipment design during manufacturing and testing phases</li>
+          <li>Lead coordination with mechanical designers to develop optimized layouts</li>
+          <li>Select and validate components, creating detailed bills of materials</li>
+          <li>Support factory witness tests and troubleshoot issues in real-time</li>
+          <li>Mentor and support the development of junior engineers</li>
+        </ul>
+
+        <h3>Qualifications</h3>
+        <ul>
+          <li>Bachelor's degree in Electrical Engineering or equivalent professional experience</li>
+          <li>Minimum of 5 years of experience working in a related field</li>
+          <li>Previous field service experience is a big plus</li>
+          <li>Industrial automation experience is a big plus</li>
+        </ul>
+
+        <h3>Compensation</h3>
+        <p>The salary range for this role is $115,200 - $174,720 per year, based on location, experience, and
+          qualifications.</p>
+      </div>
+
+      <div class="application-panel">
+        <h2>Apply for this job</h2>
+
+        <form id="application-form">
+          <div style="margin-bottom: 16px;">
+            <button type="button" class="file-upload-btn" style="width: 100%; justify-content: center;">
+              Autofill with MyGreenhouse
+            </button>
+          </div>
+
+          <div class="form-group">
+            <label for="first_name">First Name<span class="required">*</span></label>
+            <input type="text" id="first_name" name="first_name" required data-testid="input-first_name">
+          </div>
+
+          <div class="form-group">
+            <label for="last_name">Last Name<span class="required">*</span></label>
+            <input type="text" id="last_name" name="last_name" required data-testid="input-last_name">
+          </div>
+
+          <div class="form-group">
+            <label for="preferred_name">Preferred First Name</label>
+            <input type="text" id="preferred_name" name="preferred_name" data-testid="input-preferred_name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email<span class="required">*</span></label>
+            <input type="email" id="email" name="email" required data-testid="input-email">
+          </div>
+
+          <div class="form-group">
+            <label>Phone<span class="required">*</span></label>
+            <div class="phone-group">
+              <div class="country-select">
+                <div class="gh-select" data-testid="select-phone_country" data-name="phone_country"
+                  data-required="true">
+                  <input type="hidden" name="phone_country" class="gh-select__input" data-testid="input-phone_country">
+                  <div class="gh-select__control" tabindex="0">
+                    <span class="gh-select__value gh-select__placeholder">Country</span>
+                    <span class="gh-select__indicator">
+                      <svg width="12" height="12" viewBox="0 0 12 12">
+                        <path fill="currentColor" d="M6 8L1 3h10z" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567" data-testid="input-phone">
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="file-upload-group">
+            <label>Resume/CV<span class="required">*</span></label>
+            <div class="file-upload-options">
+              <label class="file-upload-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" />
+                </svg>
+                Attach
+                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx,.txt,.rtf" required
+                  data-testid="input-resume">
+              </label>
+              <span class="file-upload-divider">or</span>
+              <button type="button" class="file-manual-btn">Enter manually</button>
+            </div>
+            <p class="file-upload-help">Accepted file types: pdf, doc, docx, txt, rtf</p>
+          </div>
+
+          <div class="file-upload-group">
+            <label>Cover Letter</label>
+            <div class="file-upload-options">
+              <label class="file-upload-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" />
+                </svg>
+                Attach
+                <input type="file" id="cover_letter" name="cover_letter" accept=".pdf,.doc,.docx,.txt,.rtf"
+                  data-testid="input-cover_letter">
+              </label>
+              <span class="file-upload-divider">or</span>
+              <button type="button" class="file-manual-btn">Enter manually</button>
+            </div>
+            <p class="file-upload-help">Accepted file types: pdf, doc, docx, txt, rtf</p>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="form-group">
+            <label for="linkedin">LinkedIn Profile</label>
+            <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile"
+              data-testid="input-linkedin">
+          </div>
+
+          <div class="form-group">
+            <label for="website">Website</label>
+            <input type="url" id="website" name="website" placeholder="https://yourwebsite.com"
+              data-testid="input-website">
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="section-header">Application Questions</div>
+
+          <div class="form-group">
+            <label>Are you at least 18 years of age?<span class="required">*</span></label>
+            <div class="gh-select" data-testid="select-age_18" data-name="age_18" data-required="true">
+              <input type="hidden" name="age_18" class="gh-select__input" data-testid="input-age_18">
+              <div class="gh-select__control" tabindex="0">
+                <span class="gh-select__value gh-select__placeholder">Select...</span>
+                <span class="gh-select__indicator">
+                  <svg width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="currentColor" d="M6 8L1 3h10z" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="desired_salary">What is your desired salary?<span class="required">*</span></label>
+            <input type="text" id="desired_salary" name="desired_salary" required placeholder="e.g., $120,000"
+              data-testid="input-desired_salary">
+          </div>
+
+          <div class="form-group">
+            <label>Have you ever been employed by IEM or IPS?<span class="required">*</span></label>
+            <div class="gh-select" data-testid="select-previous_employee" data-name="previous_employee"
+              data-required="true">
+              <input type="hidden" name="previous_employee" class="gh-select__input"
+                data-testid="input-previous_employee">
+              <div class="gh-select__control" tabindex="0">
+                <span class="gh-select__value gh-select__placeholder">Select...</span>
+                <span class="gh-select__indicator">
+                  <svg width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="currentColor" d="M6 8L1 3h10z" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Are you legally authorized to work in the United States?<span class="required">*</span></label>
+            <div class="gh-select" data-testid="select-work_authorization" data-name="work_authorization"
+              data-required="true">
+              <input type="hidden" name="work_authorization" class="gh-select__input"
+                data-testid="input-work_authorization">
+              <div class="gh-select__control" tabindex="0">
+                <span class="gh-select__value gh-select__placeholder">Select...</span>
+                <span class="gh-select__indicator">
+                  <svg width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="currentColor" d="M6 8L1 3h10z" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Do you require sponsorship now or in the future?<span class="required">*</span></label>
+            <div class="gh-select" data-testid="select-sponsorship" data-name="sponsorship" data-required="true">
+              <input type="hidden" name="sponsorship" class="gh-select__input" data-testid="input-sponsorship">
+              <div class="gh-select__control" tabindex="0">
+                <span class="gh-select__value gh-select__placeholder">Select...</span>
+                <span class="gh-select__indicator">
+                  <svg width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="currentColor" d="M6 8L1 3h10z" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Can you perform the essential functions of this position?<span class="required">*</span></label>
+            <div class="gh-select" data-testid="select-essential_functions" data-name="essential_functions"
+              data-required="true">
+              <input type="hidden" name="essential_functions" class="gh-select__input"
+                data-testid="input-essential_functions">
+              <div class="gh-select__control" tabindex="0">
+                <span class="gh-select__value gh-select__placeholder">Select...</span>
+                <span class="gh-select__indicator">
+                  <svg width="12" height="12" viewBox="0 0 12 12">
+                    <path fill="currentColor" d="M6 8L1 3h10z" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="why_strong_fit">Why do you feel you are a strong fit for this position?</label>
+            <textarea id="why_strong_fit" name="why_strong_fit"
+              placeholder="Share why you're interested in this role..." data-testid="input-why_strong_fit"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="additional_info">Is there anything else you would like us to know about you?</label>
+            <textarea id="additional_info" name="additional_info" placeholder="Any additional information..."
+              data-testid="input-additional_info"></textarea>
+          </div>
+
+          <div class="divider"></div>
+
+          <button type="submit" class="submit-btn" data-testid="submit-application">Submit application</button>
+
+          <div class="powered-by">
+            Powered by <span class="gh-logo">Greenhouse</span>
+          </div>
+        </form>
+
+        <div class="job-alert-section">
+          <h3>Create a Job Alert</h3>
+          <p>Interested in building your career at Industrial Electric Manufacturing?</p>
+          <button type="button" class="job-alert-btn">Create alert</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2024 Industrial Electric Manufacturing. All rights reserved.</p>
+    </div>
+  </div>
+
+  <div id="gh-select-portal"></div>
+
+  <script>
+    const DROPDOWN_OPTIONS = {
+      'phone_country': [
+        { value: 'US', label: 'United States (+1)' },
+        { value: 'CA', label: 'Canada (+1)' },
+        { value: 'UK', label: 'United Kingdom (+44)' },
+        { value: 'AU', label: 'Australia (+61)' },
+        { value: 'DE', label: 'Germany (+49)' },
+        { value: 'FR', label: 'France (+33)' },
+        { value: 'IN', label: 'India (+91)' },
+        { value: 'MX', label: 'Mexico (+52)' },
+        { value: 'JP', label: 'Japan (+81)' },
+        { value: 'BR', label: 'Brazil (+55)' },
+        { value: 'AF', label: 'Afghanistan (+93)' },
+        { value: 'AL', label: 'Albania (+355)' },
+        { value: 'DZ', label: 'Algeria (+213)' },
+        { value: 'AD', label: 'Andorra (+376)' },
+        { value: 'AO', label: 'Angola (+244)' },
+        { value: 'AG', label: 'Antigua and Barbuda (+1-268)' },
+        { value: 'AR', label: 'Argentina (+54)' },
+        { value: 'AM', label: 'Armenia (+374)' },
+        { value: 'AT', label: 'Austria (+43)' },
+        { value: 'AZ', label: 'Azerbaijan (+994)' },
+        { value: 'BS', label: 'Bahamas (+1-242)' },
+        { value: 'BH', label: 'Bahrain (+973)' },
+        { value: 'BD', label: 'Bangladesh (+880)' },
+        { value: 'BB', label: 'Barbados (+1-246)' },
+        { value: 'BY', label: 'Belarus (+375)' },
+        { value: 'BE', label: 'Belgium (+32)' },
+        { value: 'BZ', label: 'Belize (+501)' },
+        { value: 'BJ', label: 'Benin (+229)' },
+        { value: 'BT', label: 'Bhutan (+975)' },
+        { value: 'BO', label: 'Bolivia (+591)' },
+        { value: 'BA', label: 'Bosnia and Herzegovina (+387)' },
+        { value: 'BW', label: 'Botswana (+267)' },
+        { value: 'BN', label: 'Brunei (+673)' },
+        { value: 'BG', label: 'Bulgaria (+359)' },
+        { value: 'BF', label: 'Burkina Faso (+226)' },
+        { value: 'BI', label: 'Burundi (+257)' },
+        { value: 'KH', label: 'Cambodia (+855)' },
+        { value: 'CM', label: 'Cameroon (+237)' },
+        { value: 'CV', label: 'Cape Verde (+238)' },
+        { value: 'CF', label: 'Central African Republic (+236)' },
+        { value: 'TD', label: 'Chad (+235)' },
+        { value: 'CL', label: 'Chile (+56)' },
+        { value: 'CN', label: 'China (+86)' },
+        { value: 'CO', label: 'Colombia (+57)' },
+        { value: 'KM', label: 'Comoros (+269)' },
+        { value: 'CG', label: 'Congo (+242)' },
+        { value: 'CR', label: 'Costa Rica (+506)' },
+        { value: 'HR', label: 'Croatia (+385)' },
+        { value: 'CU', label: 'Cuba (+53)' },
+        { value: 'CY', label: 'Cyprus (+357)' },
+        { value: 'CZ', label: 'Czech Republic (+420)' },
+        { value: 'DK', label: 'Denmark (+45)' },
+        { value: 'DJ', label: 'Djibouti (+253)' },
+        { value: 'DM', label: 'Dominica (+1-767)' },
+        { value: 'DO', label: 'Dominican Republic (+1-809)' },
+        { value: 'EC', label: 'Ecuador (+593)' },
+        { value: 'EG', label: 'Egypt (+20)' },
+        { value: 'SV', label: 'El Salvador (+503)' },
+        { value: 'GQ', label: 'Equatorial Guinea (+240)' },
+        { value: 'ER', label: 'Eritrea (+291)' },
+        { value: 'EE', label: 'Estonia (+372)' },
+        { value: 'ET', label: 'Ethiopia (+251)' },
+        { value: 'FJ', label: 'Fiji (+679)' },
+        { value: 'FI', label: 'Finland (+358)' },
+        { value: 'GA', label: 'Gabon (+241)' },
+        { value: 'GM', label: 'Gambia (+220)' },
+        { value: 'GE', label: 'Georgia (+995)' },
+        { value: 'GH', label: 'Ghana (+233)' },
+        { value: 'GR', label: 'Greece (+30)' },
+        { value: 'GD', label: 'Grenada (+1-473)' },
+        { value: 'GT', label: 'Guatemala (+502)' },
+        { value: 'GN', label: 'Guinea (+224)' },
+        { value: 'GY', label: 'Guyana (+592)' },
+        { value: 'HT', label: 'Haiti (+509)' },
+        { value: 'HN', label: 'Honduras (+504)' },
+        { value: 'HK', label: 'Hong Kong (+852)' },
+        { value: 'HU', label: 'Hungary (+36)' },
+        { value: 'IS', label: 'Iceland (+354)' },
+        { value: 'ID', label: 'Indonesia (+62)' },
+        { value: 'IR', label: 'Iran (+98)' },
+        { value: 'IQ', label: 'Iraq (+964)' },
+        { value: 'IE', label: 'Ireland (+353)' },
+        { value: 'IL', label: 'Israel (+972)' },
+        { value: 'IT', label: 'Italy (+39)' },
+        { value: 'JM', label: 'Jamaica (+1-876)' },
+        { value: 'JO', label: 'Jordan (+962)' },
+        { value: 'KZ', label: 'Kazakhstan (+7)' },
+        { value: 'KE', label: 'Kenya (+254)' },
+        { value: 'KW', label: 'Kuwait (+965)' },
+        { value: 'KG', label: 'Kyrgyzstan (+996)' },
+        { value: 'LA', label: 'Laos (+856)' },
+        { value: 'LV', label: 'Latvia (+371)' },
+        { value: 'LB', label: 'Lebanon (+961)' },
+        { value: 'LS', label: 'Lesotho (+266)' },
+        { value: 'LR', label: 'Liberia (+231)' },
+        { value: 'LY', label: 'Libya (+218)' },
+        { value: 'LI', label: 'Liechtenstein (+423)' },
+        { value: 'LT', label: 'Lithuania (+370)' },
+        { value: 'LU', label: 'Luxembourg (+352)' },
+        { value: 'MG', label: 'Madagascar (+261)' },
+        { value: 'MW', label: 'Malawi (+265)' },
+        { value: 'MY', label: 'Malaysia (+60)' },
+        { value: 'MV', label: 'Maldives (+960)' },
+        { value: 'ML', label: 'Mali (+223)' },
+        { value: 'MT', label: 'Malta (+356)' },
+        { value: 'MR', label: 'Mauritania (+222)' },
+        { value: 'MU', label: 'Mauritius (+230)' },
+        { value: 'MD', label: 'Moldova (+373)' },
+        { value: 'MC', label: 'Monaco (+377)' },
+        { value: 'MN', label: 'Mongolia (+976)' },
+        { value: 'ME', label: 'Montenegro (+382)' },
+        { value: 'MA', label: 'Morocco (+212)' },
+        { value: 'MZ', label: 'Mozambique (+258)' },
+        { value: 'MM', label: 'Myanmar (+95)' },
+        { value: 'NA', label: 'Namibia (+264)' },
+        { value: 'NP', label: 'Nepal (+977)' },
+        { value: 'NL', label: 'Netherlands (+31)' },
+        { value: 'NZ', label: 'New Zealand (+64)' },
+        { value: 'NI', label: 'Nicaragua (+505)' },
+        { value: 'NE', label: 'Niger (+227)' },
+        { value: 'NG', label: 'Nigeria (+234)' },
+        { value: 'KP', label: 'North Korea (+850)' },
+        { value: 'MK', label: 'North Macedonia (+389)' },
+        { value: 'NO', label: 'Norway (+47)' },
+        { value: 'OM', label: 'Oman (+968)' },
+        { value: 'PK', label: 'Pakistan (+92)' },
+        { value: 'PA', label: 'Panama (+507)' },
+        { value: 'PG', label: 'Papua New Guinea (+675)' },
+        { value: 'PY', label: 'Paraguay (+595)' },
+        { value: 'PE', label: 'Peru (+51)' },
+        { value: 'PH', label: 'Philippines (+63)' },
+        { value: 'PL', label: 'Poland (+48)' },
+        { value: 'PT', label: 'Portugal (+351)' },
+        { value: 'QA', label: 'Qatar (+974)' },
+        { value: 'RO', label: 'Romania (+40)' },
+        { value: 'RU', label: 'Russia (+7)' },
+        { value: 'RW', label: 'Rwanda (+250)' },
+        { value: 'SA', label: 'Saudi Arabia (+966)' },
+        { value: 'SN', label: 'Senegal (+221)' },
+        { value: 'RS', label: 'Serbia (+381)' },
+        { value: 'SG', label: 'Singapore (+65)' },
+        { value: 'SK', label: 'Slovakia (+421)' },
+        { value: 'SI', label: 'Slovenia (+386)' },
+        { value: 'SO', label: 'Somalia (+252)' },
+        { value: 'ZA', label: 'South Africa (+27)' },
+        { value: 'KR', label: 'South Korea (+82)' },
+        { value: 'SS', label: 'South Sudan (+211)' },
+        { value: 'ES', label: 'Spain (+34)' },
+        { value: 'LK', label: 'Sri Lanka (+94)' },
+        { value: 'SD', label: 'Sudan (+249)' },
+        { value: 'SR', label: 'Suriname (+597)' },
+        { value: 'SE', label: 'Sweden (+46)' },
+        { value: 'CH', label: 'Switzerland (+41)' },
+        { value: 'SY', label: 'Syria (+963)' },
+        { value: 'TW', label: 'Taiwan (+886)' },
+        { value: 'TJ', label: 'Tajikistan (+992)' },
+        { value: 'TZ', label: 'Tanzania (+255)' },
+        { value: 'TH', label: 'Thailand (+66)' },
+        { value: 'TG', label: 'Togo (+228)' },
+        { value: 'TT', label: 'Trinidad and Tobago (+1-868)' },
+        { value: 'TN', label: 'Tunisia (+216)' },
+        { value: 'TR', label: 'Turkey (+90)' },
+        { value: 'TM', label: 'Turkmenistan (+993)' },
+        { value: 'UG', label: 'Uganda (+256)' },
+        { value: 'UA', label: 'Ukraine (+380)' },
+        { value: 'AE', label: 'United Arab Emirates (+971)' },
+        { value: 'UY', label: 'Uruguay (+598)' },
+        { value: 'UZ', label: 'Uzbekistan (+998)' },
+        { value: 'VE', label: 'Venezuela (+58)' },
+        { value: 'VN', label: 'Vietnam (+84)' },
+        { value: 'YE', label: 'Yemen (+967)' },
+        { value: 'ZM', label: 'Zambia (+260)' },
+        { value: 'ZW', label: 'Zimbabwe (+263)' }
+      ],
+      'age_18': [
+        { value: 'yes', label: 'Yes' },
+        { value: 'no', label: 'No' }
+      ],
+      'previous_employee': [
+        { value: 'yes', label: 'Yes' },
+        { value: 'no', label: 'No' }
+      ],
+      'work_authorization': [
+        { value: 'yes', label: 'Yes' },
+        { value: 'no', label: 'No' }
+      ],
+      'sponsorship': [
+        { value: 'yes', label: 'Yes' },
+        { value: 'no', label: 'No' }
+      ],
+      'essential_functions': [
+        { value: 'yes', label: 'Yes' },
+        { value: 'no', label: 'No' }
+      ]
+    };
+
+    let activeDropdown = null;
+    let activeMenu = null;
+    const portal = document.getElementById('gh-select-portal');
+
+    document.querySelectorAll('.gh-select').forEach(initDropdown);
+
+    function initDropdown(selectEl) {
+      const control = selectEl.querySelector('.gh-select__control');
+      const fieldName = selectEl.dataset.name;
+      const hiddenInput = selectEl.querySelector('.gh-select__input');
+
+      control.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (activeDropdown === selectEl) {
+          closeDropdown();
+          return;
+        }
+        closeDropdown();
+        openDropdown(selectEl, fieldName, hiddenInput, control);
+      });
+
+      control.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          control.click();
+        } else if (e.key === 'Escape') {
+          closeDropdown();
+        } else if (e.key === 'ArrowDown' && activeDropdown === selectEl) {
+          e.preventDefault();
+          const firstOption = activeMenu?.querySelector('.gh-select__option');
+          if (firstOption) firstOption.focus();
+        }
+      });
+    }
+
+    function openDropdown(selectEl, fieldName, hiddenInput, control) {
+      activeDropdown = selectEl;
+      control.classList.add('gh-select__control--focused');
+      control.querySelector('.gh-select__indicator').classList.add('gh-select__indicator--open');
+
+      const menu = document.createElement('div');
+      menu.className = 'gh-select__menu-portal';
+      menu.innerHTML = `
+        <div class="gh-select__menu">
+          <div class="gh-select__menu-list">
+            <div class="gh-select__loading">Loading...</div>
+          </div>
+        </div>
+      `;
+
+      const rect = control.getBoundingClientRect();
+      menu.style.top = `${rect.bottom + window.scrollY}px`;
+      menu.style.left = `${rect.left + window.scrollX}px`;
+      menu.style.width = `${rect.width}px`;
+
+      portal.appendChild(menu);
+      activeMenu = menu;
+
+      setTimeout(() => {
+        const options = DROPDOWN_OPTIONS[fieldName] || [];
+        const menuList = menu.querySelector('.gh-select__menu-list');
+        const currentValue = hiddenInput.value;
+
+        menuList.innerHTML = options.map(opt => `
+          <div class="gh-select__option${opt.value === currentValue ? ' gh-select__option--selected' : ''}"
+               data-value="${opt.value}"
+               tabindex="0">
+            ${opt.label}
+          </div>
+        `).join('');
+
+        menuList.querySelectorAll('.gh-select__option').forEach(optionEl => {
+          optionEl.addEventListener('click', () => {
+            selectOption(selectEl, hiddenInput, control, optionEl.dataset.value, optionEl.textContent.trim());
+          });
+
+          optionEl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+              selectOption(selectEl, hiddenInput, control, optionEl.dataset.value, optionEl.textContent.trim());
+            } else if (e.key === 'Escape') {
+              closeDropdown();
+              control.focus();
+            } else if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              const next = optionEl.nextElementSibling;
+              if (next) next.focus();
+            } else if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              const prev = optionEl.previousElementSibling;
+              if (prev) prev.focus();
+              else control.focus();
+            }
+          });
+        });
+      }, 150);
+    }
+
+    function selectOption(selectEl, hiddenInput, control, value, label) {
+      hiddenInput.value = value;
+      const valueEl = control.querySelector('.gh-select__value');
+      valueEl.textContent = label;
+      valueEl.classList.remove('gh-select__placeholder');
+      closeDropdown();
+      control.focus();
+    }
+
+    function closeDropdown() {
+      if (activeMenu) {
+        activeMenu.remove();
+        activeMenu = null;
+      }
+      if (activeDropdown) {
+        const control = activeDropdown.querySelector('.gh-select__control');
+        control.classList.remove('gh-select__control--focused');
+        control.querySelector('.gh-select__indicator').classList.remove('gh-select__indicator--open');
+        activeDropdown = null;
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      if (activeDropdown && !activeDropdown.contains(e.target) && !activeMenu?.contains(e.target)) {
+        closeDropdown();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDropdown();
+      }
+    });
+
+    document.getElementById('application-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const requiredDropdowns = document.querySelectorAll('.gh-select[data-required="true"]');
+      let isValid = true;
+
+      requiredDropdowns.forEach(dropdown => {
+        const input = dropdown.querySelector('.gh-select__input');
+        if (!input.value) {
+          isValid = false;
+          dropdown.querySelector('.gh-select__control').style.borderColor = 'var(--color-error)';
+        } else {
+          dropdown.querySelector('.gh-select__control').style.borderColor = '';
+        }
+      });
+
+      if (isValid) {
+        window.location.href = 'confirmation.html';
+      } else {
+        alert('Please fill in all required fields');
+      }
+    });
+
+    document.querySelectorAll('input[type="file"]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        const label = this.closest('.file-upload-btn');
+        if (this.files.length > 0) {
+          const fileName = this.files[0].name;
+          const svg = label.querySelector('svg').outerHTML;
+          label.innerHTML = svg + ' ' + fileName;
+          label.appendChild(this);
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
